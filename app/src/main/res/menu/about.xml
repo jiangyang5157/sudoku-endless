@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:yang="http://schemas.android.com/apk/res-auto">
+      <item android:id="@+id/menu_rating"
+            android:title="@string/rating"
+            android:orderInCategory="50"
+            android:icon="@drawable/ic_action_favorite"
+            yang:showAsAction="always" />
+</menu>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+    Constant
+    -->
+    <string name="app_name">Sudoku Endless</string>
+
+    <string name="minus_key">-</string>
+    <string name="colon_key">:</string>
+    <string name="hash_key">#</string>
+
+    <string name="red_abbr">R</string>
+    <string name="green_abbr">G</string>
+    <string name="blue_abbr">B</string>
+    <string name="alpha_abbr">A</string>
+
+    <string name="numeric_1">1</string>
+    <string name="numeric_2">2</string>
+    <string name="numeric_3">3</string>
+    <string name="numeric_4">4</string>
+    <string name="numeric_5">5</string>
+    <string name="numeric_6">6</string>
+    <string name="numeric_7">7</string>
+    <string name="numeric_8">8</string>
+    <string name="numeric_9">9</string>
+
+    <!--
+    Multi-language
+    -->
+    <string name="processing">处理中......</string>
+    <string name="accept">接受</string>
+    <string name="decline">拒绝</string>
+    <string name="ok">好的</string>
+    <string name="cancel">取消</string>
+
+    <string name="settings">设置</string>
+    <string name="basics">基本</string>
+    <string name="color_palettes">色彩调色板</string>
+    <string name="advanced">高级</string>
+    <string name="about">关于</string>
+    <string name="app_version">应用版本</string>
+    <string name="executable_path">可执行文件路径</string>
+    <string name="profile_path">个人资料路径</string>
+    <string name="rating">评价</string>
+
+    <string name="puzzle_storage">谜题贮藏所</string>
+    <string name="import_puzzle">导入谜题</string>
+    <string name="share">分享</string>
+    <string name="select_all">全选</string>
+    <string name="discard">丢弃</string>
+
+    <string name="puzzle">谜题</string>
+    <string name="new_puzzle">新的谜题</string>
+    <string name="difficulty">难度</string>
+    <string name="reset">重置</string>
+    <string name="restart">重新开始</string>
+    <string name="resume">继续</string>
+    <string name="validate">验证</string>
+
+    <string name="msg_no_related_launcher">找不到合适的启动器。</string>
+    <string name="msg_no_external_storage">找不到外部存储器。</string>
+    <string name="msg_wrong_format">该格式不能被识别。</string>
+    <string name="msg_empty_puzzle_storage">这还是一个空的谜题贮藏所，您可以先开始一个谜题或者倒入谜题文件。</string>
+    <string name="msg_discard">您是否要彻底的丢弃他们？</string>
+    <string name="msg_completed">干得好！您已经完成了谜题。</string>
+    <string name="msg_new_puzzle">您能在谜题贮藏所里面找到并继续之前的谜题。</string>
+    <string name="msg_restart">您是否要放弃当前的进度？</string>
+    <string name="msg_reset">您是否要重置回默认的配置？</string>
+
+    <string name="easy">简单</string>
+    <string name="normal">普通</string>
+    <string name="nightmare">噩梦</string>
+    <string name="hell">地狱</string>
+
+</resources>

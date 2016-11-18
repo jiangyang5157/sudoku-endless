@@ -1,0 +1,35 @@
+package com.gmail.jiangyang5157.sudoku.ui.settings;
+
+import android.content.Intent;
+import android.preference.Preference;
+
+import com.gmail.jiangyang5157.sudoku.component.BasePreferenceFragment;
+import com.gmail.jiangyang5157.sudoku.R;
+import com.gmail.jiangyang5157.tookit.android.base.AppUtils;
+
+public class SettingsFragment extends BasePreferenceFragment {
+    public static final String FRAGMENT_TAG = "settings_fragment";
+
+    @Override
+    public void setupPreferencesScreen() {
+        addPreferencesFromResource(R.xml.preferences_settings);
+
+        Preference pColorPalettes = findPreference(AppUtils.getString(getActivity(), R.string.color_palettes));
+        pColorPalettes.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                startActivity(new Intent(getActivity(), ColorPalettesActivity.class));
+                return true;
+            }
+        });
+
+        Preference pAbout = findPreference(AppUtils.getString(getActivity(), R.string.about));
+        pAbout.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                startActivity(new Intent(getActivity(), AboutActivity.class));
+                return true;
+            }
+        });
+    }
+}

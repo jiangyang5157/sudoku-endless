@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gmail.jiangyang5157.sudoku">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Base">
+        <activity android:name=".ui.MainActivity"
+            android:theme="@style/Theme.Main"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:label="@string/settings"
+            android:theme="@style/Theme.Settings"
+            android:parentActivityName=".ui.MainActivity" />
+
+        <activity
+            android:name=".ui.settings.ColorPalettesActivity"
+            android:label="@string/color_palettes"
+            android:theme="@style/Theme.Settings"
+            android:parentActivityName=".ui.settings.SettingsActivity" />
+
+        <activity
+            android:name=".ui.settings.AboutActivity"
+            android:label="@string/about"
+            android:theme="@style/Theme.Settings"
+            android:parentActivityName=".ui.settings.SettingsActivity" />
+
+        <activity
+            android:name=".ui.storage.PuzzleStorageActivity"
+            android:label="@string/puzzle_storage"
+            android:theme="@style/Theme.PuzzleStorage"
+            android:parentActivityName=".ui.MainActivity" />
+
+        <activity
+            android:name=".ui.puzzle.SudokuActivity"
+            android:label="@string/puzzle"
+            android:theme="@style/Theme.Sudoku"/>
+    </application>
+
+</manifest>

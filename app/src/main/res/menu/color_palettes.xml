@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:yang="http://schemas.android.com/apk/res-auto">
+      <item android:id="@+id/menu_reset"
+            android:title="@string/reset"
+            android:orderInCategory="50"
+            android:icon="@drawable/ic_action_replay"
+            yang:showAsAction="always" />
+</menu>

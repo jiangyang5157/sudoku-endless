@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:yang="http://schemas.android.com/apk/res-auto"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:orientation="vertical">
+
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:orientation="horizontal"
+                  android:layout_marginLeft="@dimen/keypad_indention">
+        <Button android:id="@+id/btn_numeric_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/keypad_button_min_width"
+                android:minHeight="@dimen/keypad_button_min_height"
+                android:text="@string/numeric_1"/>
+        <Button android:id="@+id/btn_numeric_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/keypad_button_min_width"
+                android:minHeight="@dimen/keypad_button_min_height"
+                android:text="@string/numeric_2"/>
+        <Button android:id="@+id/btn_numeric_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/keypad_button_min_width"
+                android:minHeight="@dimen/keypad_button_min_height"
+                android:text="@string/numeric_3"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:orientation="horizontal">
+        <Button android:id="@+id/btn_numeric_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/keypad_button_min_width"
+                android:minHeight="@dimen/keypad_button_min_height"
+                android:text="@string/numeric_4"/>
+        <Button android:id="@+id/btn_numeric_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/keypad_button_min_width"
+                android:minHeight="@dimen/keypad_button_min_height"
+                android:text="@string/numeric_5"/>
+        <Button android:id="@+id/btn_numeric_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/keypad_button_min_width"
+                android:minHeight="@dimen/keypad_button_min_height"
+                android:text="@string/numeric_6"/>
+        <Button android:id="@+id/btn_erase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/keypad_button_min_width"
+                android:minHeight="@dimen/keypad_button_min_height"
+                android:layout_column="8"
+                android:text="@string/minus_key"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:orientation="horizontal"
+                  android:layout_marginLeft="@dimen/keypad_indention">
+        <Button android:id="@+id/btn_numeric_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/keypad_button_min_width"
+                android:minHeight="@dimen/keypad_button_min_height"
+                android:text="@string/numeric_7"/>
+        <Button android:id="@+id/btn_numeric_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/keypad_button_min_width"
+                android:minHeight="@dimen/keypad_button_min_height"
+                android:text="@string/numeric_8"/>
+        <Button android:id="@+id/btn_numeric_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/keypad_button_min_width"
+                android:minHeight="@dimen/keypad_button_min_height"
+                android:text="@string/numeric_9"/>
+    </LinearLayout>
+
+</LinearLayout>

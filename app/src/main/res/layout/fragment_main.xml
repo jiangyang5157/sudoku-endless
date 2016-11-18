@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:yang="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <com.gmail.jiangyang5157.sudoku.component.view.BaseFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            yang:square="true">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <com.gmail.jiangyang5157.sudoku.component.view.IconButton
+                    android:id="@+id/ib_resume"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    yang:text="@string/resume"
+                    yang:icon_bg="@color/theme_puzzle_storage"
+                    yang:icon_center="@drawable/ic_action_replay">
+            </com.gmail.jiangyang5157.sudoku.component.view.IconButton>
+
+            <Space android:layout_width="match_parent" android:layout_height="@dimen/space"/>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="0dp"
+                          android:layout_weight="1"
+                          android:orientation="vertical">
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="0dp"
+                              android:layout_weight="1"
+                              android:orientation="horizontal">
+                    <com.gmail.jiangyang5157.sudoku.component.view.IconButton
+                            android:id="@+id/ib_level_easy"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            yang:text="@string/easy"
+                            yang:icon_bg="@color/theme_sudoku"
+                            yang:icon_center="@drawable/ic_action_play">
+                    </com.gmail.jiangyang5157.sudoku.component.view.IconButton>
+                    <com.gmail.jiangyang5157.sudoku.component.view.IconButton
+                            android:id="@+id/ib_level_normal"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            yang:text="@string/normal"
+                            yang:icon_bg="@color/theme_sudoku"
+                            yang:icon_center="@drawable/ic_action_play">
+                    </com.gmail.jiangyang5157.sudoku.component.view.IconButton>
+                </LinearLayout>
+
+                <Space android:layout_width="match_parent" android:layout_height="@dimen/space"/>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="0dp"
+                              android:layout_weight="1"
+                              android:orientation="horizontal">
+                    <com.gmail.jiangyang5157.sudoku.component.view.IconButton
+                            android:id="@+id/ib_level_nightmare"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            yang:text="@string/nightmare"
+                            yang:icon_bg="@color/theme_sudoku"
+                            yang:icon_center="@drawable/ic_action_play">
+                    </com.gmail.jiangyang5157.sudoku.component.view.IconButton>
+                    <com.gmail.jiangyang5157.sudoku.component.view.IconButton
+                            android:id="@+id/ib_level_hell"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            yang:text="@string/hell"
+                            yang:icon_bg="@color/theme_sudoku"
+                            yang:icon_center="@drawable/ic_action_play">
+                    </com.gmail.jiangyang5157.sudoku.component.view.IconButton>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.gmail.jiangyang5157.sudoku.component.view.BaseFrameLayout>
+</RelativeLayout>

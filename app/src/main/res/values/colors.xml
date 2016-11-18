@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="theme_base">#ff4285f4</color> <!-- 66, 133, 244 -->
+    <color name="theme_base_dark">#ff3367d6</color> <!-- 51, 103, 214 -->
+
+    <color name="theme_settings">#ff777777</color> <!-- 119, 119, 119 -->
+    <color name="theme_settings_dark">#ff555555</color>
+
+    <color name="theme_puzzle_storage">#ffF44336</color> <!-- 244, 67, 54 -->
+    <color name="theme_puzzle_storage_dark">#ffE53935</color> <!-- 229, 57, 53 -->
+
+    <color name="theme_sudoku">#ff0f9d58</color> <!-- 15, 157, 88 -->
+    <color name="theme_sudoku_dark">#ff0b8043</color> <!-- 11, 128, 67 -->
+
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+
+    <color name="conflict">#ffdb4437</color> <!-- 219, 68, 55 -->
+</resources>

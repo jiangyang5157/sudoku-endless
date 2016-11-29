@@ -7,7 +7,7 @@ android {
         applicationId "com.gmail.jiangyang5157.sudoku"
         minSdkVersion 21
         targetSdkVersion 24
-        versionCode 201010
+        versionCode 21010
         versionName "2.1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 

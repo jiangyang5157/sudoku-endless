@@ -19,6 +19,7 @@ public class KeypadFragment extends BaseFragment {
     public static final String FRAGMENT_TAG = "keypad_fragment";
 
     public interface Listener {
+        
         public boolean inputNumber(int number);
 
         public boolean onErase();

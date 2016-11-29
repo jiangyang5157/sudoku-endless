@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class NodeCache implements Serializable {
-    // 2 ^ 60
+
     private static final long serialVersionUID = 2305843009213693953L;
 
     private int puzzleValue = 0;

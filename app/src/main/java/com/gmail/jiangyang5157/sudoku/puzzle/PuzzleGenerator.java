@@ -12,6 +12,7 @@ public class PuzzleGenerator {
     public static final int[] BLOCK3_BLOCKS_048 = new int[]{0, 4, 8};
 
     public interface Listener {
+
         public void onGenerateTotalPending(int count);
 
         public void onHandledPending(int count);
@@ -261,7 +262,7 @@ public class PuzzleGenerator {
             }
         }
 
-        Log.d(TAG, "Time used: " + (System.currentTimeMillis() - startTime));
+//        Log.d(TAG, "Time used: " + (System.currentTimeMillis() - startTime));
         return ret;
     }
 

@@ -4,12 +4,28 @@ import android.content.Context;
 import android.preference.PreferenceManager;
 
 import com.gmail.jiangyang5157.tookit.android.base.AppUtils;
+import com.gmail.jiangyang5157.tookit.base.data.structure.contact.EmailAddress;
+import com.gmail.jiangyang5157.tookit.base.data.structure.contact.Type;
+import com.gmail.jiangyang5157.tookit.base.data.structure.contact.person.Author;
+
+import java.util.ArrayList;
 
 /**
  * Utilities and constants related to app preferences.
  */
-public class Pref extends AppUtils {
-    private static final String TAG = "[Pref]";
+public class SudokuAppUtils extends AppUtils {
+
+    private static ArrayList<Author> authors = new ArrayList<Author>();
+
+    static {
+        Author author = new Author("Yang", "Jiang");
+        author.putEmailAddress(Type.HOME, new EmailAddress("jiangyang5157", "hotmail.com"));
+        authors.add(author);
+    }
+
+    public static ArrayList<Author> getAuthors() {
+        return authors;
+    }
 
     // width
     public static final int PUZZLE_BLOCKS_SEPARATOR_WIDTH = 8;
@@ -61,12 +77,11 @@ public class Pref extends AppUtils {
     public static int SELECTED_CELL_BORDER_COLOR;
     public static int SELECTED_CELL_TEXT_COLOR;
 
-
-    private static boolean resetColor(Context context, String key){
+    private static boolean resetColor(Context context, String key) {
         return PreferenceManager.getDefaultSharedPreferences(context).edit().remove(key).commit();
     }
 
-    public static void resetColors(Context context){
+    public static void resetColors(Context context) {
         resetColor(context, "PUZZLE_BACKGROUND_COLOR");
         resetColor(context, "NORMAL_NODE_BACKGROUND_COLOR_EDITABLE");
         resetColor(context, "NORMAL_NODE_BACKGROUND_COLOR_NONEDITABLE");

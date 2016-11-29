@@ -1,12 +1,14 @@
 package com.gmail.jiangyang5157.sudoku.puzzle;
 
+import android.support.annotation.NonNull;
+
 import com.gmail.jiangyang5157.sudoku.Config;
 import com.gmail.jiangyang5157.tookit.math.Mersenne;
 
 import java.io.Serializable;
 
 public class Level implements Serializable {
-    // 2 ^ 60
+
     private static final long serialVersionUID = 2305843009213693954L;
 
     private final Difficulty difficulty;
@@ -55,10 +57,7 @@ public class Level implements Serializable {
         return ret;
     }
 
-    public static final int randomPick(final int[] range) throws IllegalArgumentException {
-        if (range == null) {
-            throw new IllegalArgumentException("[range] must not be null");
-        }
+    public static final int randomPick(@NonNull final int[] range) throws IllegalArgumentException {
         return new Mersenne().nextInt(range[1] - range[0]) + range[0];
     }
 }

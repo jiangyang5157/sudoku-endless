@@ -1,16 +1,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:yang="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/menu_new_puzzle"
-          android:title="@string/new_puzzle"
-          android:orderInCategory="50"
-          android:icon="@drawable/ic_action_new"
-          yang:showAsAction="always"/>
-    <item android:id="@+id/menu_validate"
-          android:title="@string/validate"
-          android:orderInCategory="99"
-          yang:showAsAction="never"/>
-    <item android:id="@+id/menu_restart"
-          android:title="@string/restart"
-          android:orderInCategory="100"
-          yang:showAsAction="never"/>
+    xmlns:yang="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_new_puzzle"
+        android:icon="@drawable/ic_action_new"
+        android:orderInCategory="50"
+        android:title="@string/new_puzzle"
+        yang:showAsAction="always" />
+    <item
+        android:id="@+id/menu_validate"
+        android:orderInCategory="99"
+        android:title="@string/validate"
+        yang:showAsAction="never" />
+    <item
+        android:id="@+id/menu_restart"
+        android:orderInCategory="100"
+        android:title="@string/restart"
+        yang:showAsAction="never" />
 </menu>

@@ -8,6 +8,7 @@ import com.gmail.jiangyang5157.sudoku.R;
 import com.gmail.jiangyang5157.tookit.android.base.AppUtils;
 
 public class SettingsFragment extends BasePreferenceFragment {
+
     public static final String FRAGMENT_TAG = "settings_fragment";
 
     @Override

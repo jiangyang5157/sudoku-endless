@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class IconButton extends LinearLayout {
-    public final static String TAG = "[IconButton]";
 
     private GradientsLayout ibIconBg = null;
     private ImageView ibIconCenter = null;

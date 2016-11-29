@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import com.gmail.jiangyang5157.sudoku.component.BaseFragment;
 import com.gmail.jiangyang5157.sudoku.R;
 import com.gmail.jiangyang5157.tookit.android.base.AppUtils;
@@ -18,6 +19,7 @@ import com.gmail.jiangyang5157.tookit.android.base.AppUtils;
 public class AboutFragment extends BaseFragment {
 
     public static final String FRAGMENT_TAG = "about_fragment";
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.gmail.jiangyang5157.sudoku.SudokuAppUtils;
 import com.gmail.jiangyang5157.sudoku.component.BaseActivity;
 import com.gmail.jiangyang5157.sudoku.component.BaseExpandableListFragment;
 import com.gmail.jiangyang5157.sudoku.component.BaseFragment;
-import com.gmail.jiangyang5157.sudoku.Pref;
 import com.gmail.jiangyang5157.sudoku.R;
 import com.gmail.jiangyang5157.sudoku.puzzle.NodeCache;
 import com.gmail.jiangyang5157.sudoku.puzzle.render.PuzzleImpl;
@@ -24,6 +24,7 @@ import com.gmail.jiangyang5157.sudoku.ui.puzzle.BasePuzzleFragment;
 public class ColorPalettesActivity extends BaseActivity implements ColorPalettesExpandableListChildItemView.Listener {
 
     private ColorPalettesPuzzleFragment mColorPalettesPuzzleFragment = null;
+
     private ColorPalettesFragment mColorPalettesFragment = null;
 
     @Override
@@ -197,7 +198,7 @@ public class ColorPalettesActivity extends BaseActivity implements ColorPalettes
                         .setPositiveButton(R.string.ok,
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int whichButton) {
-                                        Pref.resetColors(ColorPalettesActivity.this);
+                                        SudokuAppUtils.resetColors(ColorPalettesActivity.this);
                                         mColorPalettesFragment.reset();
                                         mColorPalettesPuzzleFragment.refreshPuzzleView();
                                     }
@@ -216,7 +217,7 @@ public class ColorPalettesActivity extends BaseActivity implements ColorPalettes
 
     @Override
     public void onColorChanged(ColorPref colorPref) {
-        Pref.syncColor(this, colorPref.key, colorPref.getColor());
+        SudokuAppUtils.syncColor(this, colorPref.key, colorPref.getColor());
         mColorPalettesPuzzleFragment.refreshPuzzleView();
     }
 }

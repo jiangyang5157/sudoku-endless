@@ -91,19 +91,19 @@ public class SudokuActivity extends BaseActivity implements KeypadFragment.Liste
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        Log.d(TAG, "onRestoreInstanceState");
+//        Log.d(TAG, "onRestoreInstanceState");
         super.onSaveInstanceState(outState);
     }
 
     @Override
     public Object onRetainCustomNonConfigurationInstance() {
-        Log.d(TAG, "onRetainCustomNonConfigurationInstance");
+//        Log.d(TAG, "onRetainCustomNonConfigurationInstance");
         return super.onRetainCustomNonConfigurationInstance();
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        Log.d(TAG, "onRestoreInstanceState");
+//        Log.d(TAG, "onRestoreInstanceState");
         super.onRestoreInstanceState(savedInstanceState);
     }
 

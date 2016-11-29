@@ -1,21 +1,19 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:layout_height="match_parent"
-                  android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <PreferenceCategory android:title="@string/basics">
         <Preference
-                android:key="@string/color_palettes"
-                android:title="@string/color_palettes"
-                android:icon="@drawable/ic_action_edit">
-        </Preference>
+            android:icon="@drawable/ic_action_edit"
+            android:key="@string/color_palettes"
+            android:title="@string/color_palettes"></Preference>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/advanced">
         <Preference
-                android:key="@string/about"
-                android:title="@string/about"
-                android:icon="@drawable/ic_action_about">
-        </Preference>
+            android:icon="@drawable/ic_action_about"
+            android:key="@string/about"
+            android:title="@string/about"></Preference>
     </PreferenceCategory>
 
 </PreferenceScreen>

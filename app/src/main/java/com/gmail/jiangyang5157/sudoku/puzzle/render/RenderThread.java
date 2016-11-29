@@ -33,7 +33,7 @@ public class RenderThread extends Thread {
     }
 
     public void onStart() {
-        Log.d(TAG, "onStart");
+//        Log.d(TAG, "onStart");
         synchronized (surfaceHolder) {
             isRunning = true;
             start();
@@ -41,7 +41,7 @@ public class RenderThread extends Thread {
     }
 
     public void onPause() {
-        Log.d(TAG, "onPause");
+//        Log.d(TAG, "onPause");
         synchronized (surfaceHolder) {
             isPaused = true;
         }
@@ -55,7 +55,7 @@ public class RenderThread extends Thread {
     }
 
     public void refresh() {
-        Log.d(TAG, "refresh");
+//        Log.d(TAG, "refresh");
         synchronized (surfaceHolder) {
             refresh = true;
             surfaceHolder.notify();
@@ -63,7 +63,7 @@ public class RenderThread extends Thread {
     }
 
     public void onResume() {
-        Log.d(TAG, "onResume");
+//        Log.d(TAG, "onResume");
         synchronized (surfaceHolder) {
             isPaused = false;
             surfaceHolder.notify();
@@ -71,7 +71,7 @@ public class RenderThread extends Thread {
     }
 
     public void onStop() {
-        Log.d(TAG, "onStop");
+//        Log.d(TAG, "onStop");
         synchronized (surfaceHolder) {
             isRunning = false;
             surfaceHolder.notify();
@@ -89,7 +89,7 @@ public class RenderThread extends Thread {
     }
 
     public void onWindowFocusChanged(boolean hasFocus) {
-        Log.d(TAG, "onWindowFocusChanged");
+//        Log.d(TAG, "onWindowFocusChanged");
         synchronized (surfaceHolder) {
             this.isFocused = hasFocus;
             if (hasFocus) {
@@ -136,7 +136,7 @@ public class RenderThread extends Thread {
 
                 long elapsed = now - prevFrame;
                 if (elapsed > 1000) {
-                    Log.d(TAG, "FPS - " + (frames * 1000) / elapsed);
+//                    Log.d(TAG, "FPS - " + (frames * 1000) / elapsed);
                     prevFrame = System.currentTimeMillis();
                     frames = 0;
                 }

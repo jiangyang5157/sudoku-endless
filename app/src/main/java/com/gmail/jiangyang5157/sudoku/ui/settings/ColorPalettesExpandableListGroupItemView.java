@@ -13,6 +13,7 @@ import com.gmail.jiangyang5157.tookit.android.base.AppUtils;
 public class ColorPalettesExpandableListGroupItemView extends FrameLayout {
 
     private ImageView indicator = null;
+
     private TextView tvTitle = null;
 
     public ColorPalettesExpandableListGroupItemView(Context context) {

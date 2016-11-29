@@ -8,8 +8,6 @@ import com.gmail.jiangyang5157.sudoku.R;
 
 public class ProcessingDialog extends BaseDialogFragment {
 
-    public final static String TAG = "[ProcessingDialog]";
-
     public static final String MASSAGE_KEY = "MASSAGE_KEY";
 
     private TextView tvMassage = null;
@@ -22,7 +20,6 @@ public class ProcessingDialog extends BaseDialogFragment {
         if (getArguments() != null) {
             setMassage(getArguments().getString(MASSAGE_KEY));
         }
-
         return view;
     }
 

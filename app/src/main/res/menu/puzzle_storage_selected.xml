@@ -1,15 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:yang="http://schemas.android.com/apk/res-auto">
+    xmlns:yang="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/menu_discard"
-          android:title="@string/discard"
-          android:orderInCategory="49"
-          android:icon="@drawable/ic_action_discard"
-          yang:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_discard"
+        android:icon="@drawable/ic_action_discard"
+        android:orderInCategory="49"
+        android:title="@string/discard"
+        yang:showAsAction="always" />
 
-    <item android:id="@+id/menu_share"
-          android:title="@string/share"
-          android:orderInCategory="50"
-          android:icon="@drawable/ic_action_share"
-          yang:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_share"
+        android:icon="@drawable/ic_action_share"
+        android:orderInCategory="50"
+        android:title="@string/share"
+        yang:showAsAction="always" />
 </menu>

@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 public interface Renderable {
+
     public void update();
 
     public void render(Canvas canvas, Paint paint);

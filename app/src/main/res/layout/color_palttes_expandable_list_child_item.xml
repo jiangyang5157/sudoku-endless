@@ -1,107 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:yang="http://schemas.android.com/apk/res-auto"
-              android:orientation="horizontal"
-              android:descendantFocusability="blocksDescendants"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:gravity="center_vertical"
-              android:paddingLeft="@dimen/space"
-              android:paddingRight="@dimen/space"
-              android:paddingTop="@dimen/space"
-              android:paddingBottom="@dimen/space"
-              android:background="@drawable/textured_slash">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/textured_slash"
+    android:descendantFocusability="blocksDescendants"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/space"
+    android:paddingLeft="@dimen/space"
+    android:paddingRight="@dimen/space"
+    android:paddingTop="@dimen/space">
 
-    <LinearLayout android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:orientation="vertical"
-                  android:gravity="center_horizontal">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
         <FrameLayout
-                android:layout_width="@dimen/color_palttes_drawable_width"
-                android:layout_height="@dimen/color_palttes_drawable_height"
-                android:background="@drawable/bg_card">
+            android:layout_width="@dimen/color_palttes_drawable_width"
+            android:layout_height="@dimen/color_palttes_drawable_height"
+            android:background="@drawable/bg_card">
+
             <ImageView
-                    android:id="@+id/iv_color_drawable"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerInside"
-                    android:background="@drawable/textured_alpha_pattern"/>
-        </FrameLayout>
-        <TextView
-                android:id="@+id/tv_hex_color"
+                android:id="@+id/iv_color_drawable"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"/>
+                android:layout_height="match_parent"
+                android:background="@drawable/textured_alpha_pattern"
+                android:scaleType="centerInside" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_hex_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" />
     </LinearLayout>
 
     <LinearLayout
-            android:orientation="vertical"
-            android:descendantFocusability="blocksDescendants"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textured_slash"
+        android:descendantFocusability="blocksDescendants"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/space"
+        android:paddingLeft="@dimen/space"
+        android:paddingRight="@dimen/space"
+        android:paddingTop="@dimen/space">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:paddingLeft="@dimen/space"
-            android:paddingRight="@dimen/space"
-            android:paddingTop="@dimen/space"
-            android:paddingBottom="@dimen/space"
-            android:background="@drawable/textured_slash">
-        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/red_abbr" />
+
+            <SeekBar
+                android:id="@+id/sb_red"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="@string/red_abbr"/>
-            <SeekBar
-                    android:id="@+id/sb_red"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="@integer/color_component_max_value"/>
+                android:max="@integer/color_component_max_value" />
         </LinearLayout>
+
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/green_abbr" />
+
+            <SeekBar
+                android:id="@+id/sb_green"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="@string/green_abbr"/>
-            <SeekBar
-                    android:id="@+id/sb_green"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="@integer/color_component_max_value"/>
+                android:max="@integer/color_component_max_value" />
         </LinearLayout>
+
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/blue_abbr" />
+
+            <SeekBar
+                android:id="@+id/sb_blue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="@string/blue_abbr"/>
-            <SeekBar
-                    android:id="@+id/sb_blue"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="@integer/color_component_max_value"/>
+                android:max="@integer/color_component_max_value" />
         </LinearLayout>
+
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/alpha_abbr" />
+
+            <SeekBar
+                android:id="@+id/sb_alpha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="@string/alpha_abbr"/>
-            <SeekBar
-                    android:id="@+id/sb_alpha"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:max="@integer/color_component_max_value"/>
+                android:max="@integer/color_component_max_value" />
         </LinearLayout>
+
     </LinearLayout>
+
 </LinearLayout>
 
 

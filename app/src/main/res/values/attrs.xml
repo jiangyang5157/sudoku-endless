@@ -23,10 +23,10 @@
     </declare-styleable>
 
     <declare-styleable name="NumberView">
-        <attr name="text_size" format="float"/>
-        <attr name="text_color" format="reference"/>
-        <attr name="stroke_width" format="float"/>
-        <attr name="scale" format="float"/>
+        <attr name="text_size" format="float" />
+        <attr name="text_color" format="reference" />
+        <attr name="stroke_width" format="float" />
+        <attr name="scale" format="float" />
     </declare-styleable>
 
 </resources>

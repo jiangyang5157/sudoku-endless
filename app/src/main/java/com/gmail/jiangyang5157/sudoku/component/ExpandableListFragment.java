@@ -68,47 +68,6 @@ public class ExpandableListFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_expandable_list_internal, container, false);
-
-//        final Context context = getActivity();
-//
-//        FrameLayout root = new FrameLayout(context);
-//
-//        LinearLayout progressContainer = new LinearLayout(context);
-//        progressContainer.setId(INTERNAL_PROGRESS_CONTAINER_ID);
-//        progressContainer.setOrientation(LinearLayout.VERTICAL);
-//        progressContainer.setVisibility(View.GONE);
-//        progressContainer.setGravity(Gravity.CENTER);
-//
-//        ProgressBar progress = new ProgressBar(context, null,
-//                android.R.attr.progressBarStyleLarge);
-//        progressContainer.addView(progress, new FrameLayout.LayoutParams(
-//                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-//
-//        root.addView(progressContainer, new FrameLayout.LayoutParams(
-//                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-//
-//        FrameLayout listContainer = new FrameLayout(context);
-//        listContainer.setId(INTERNAL_LIST_CONTAINER_ID);
-//
-//        TextView tvEmpty = new TextView(getActivity());
-//        tvEmpty.setId(INTERNAL_EMPTY_ID);
-//        tvEmpty.setGravity(Gravity.CENTER);
-//        listContainer.addView(tvEmpty, new FrameLayout.LayoutParams(
-//                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-//
-//        ExpandableListView list = new ExpandableListView(getActivity());
-//        list.setId(android.R.id.list);
-//        list.setDrawSelectorOnTop(false);
-//        listContainer.addView(list, new FrameLayout.LayoutParams(
-//                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-//
-//        root.addView(listContainer, new FrameLayout.LayoutParams(
-//                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-//
-//        root.setLayoutParams(new FrameLayout.LayoutParams(
-//                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-//
-//        return root;
     }
 
     /**

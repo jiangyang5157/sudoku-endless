@@ -5,45 +5,46 @@ import android.graphics.Paint;
 
 public abstract class State {
 
-	public static final int NULL = -1;
+    public static final int NULL = -1;
 
-	private int id = NULL;
-	private int backgroundColor = NULL;
-	private int borderWidth = NULL;
-	private int borderColor = NULL;
+    private int id = NULL;
+    private int backgroundColor = NULL;
+    private int borderWidth = NULL;
+    private int borderColor = NULL;
 
-	public abstract void update(Component component);
-	public abstract void render(Component component, Canvas canvas, Paint paint);
+    public abstract void update(Component component);
 
-	public int getId() {
-		return id;
-	}
+    public abstract void render(Component component, Canvas canvas, Paint paint);
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public int getBackgroundColor() {
-		return backgroundColor;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setBackgroundColor(int color) {
-		this.backgroundColor = color;
-	}
-	
-	public int getBorderWidth() {
-		return borderWidth;
-	}
+    public int getBackgroundColor() {
+        return backgroundColor;
+    }
 
-	public void setBorderWidth(int borderWidth) {
-		this.borderWidth = borderWidth;
-	}
+    public void setBackgroundColor(int color) {
+        this.backgroundColor = color;
+    }
 
-	public int getBorderColor() {
-		return borderColor;
-	}
+    public int getBorderWidth() {
+        return borderWidth;
+    }
 
-	public void setBorderColor(int borderColor) {
-		this.borderColor = borderColor;
-	}
+    public void setBorderWidth(int borderWidth) {
+        this.borderWidth = borderWidth;
+    }
+
+    public int getBorderColor() {
+        return borderColor;
+    }
+
+    public void setBorderColor(int borderColor) {
+        this.borderColor = borderColor;
+    }
 }

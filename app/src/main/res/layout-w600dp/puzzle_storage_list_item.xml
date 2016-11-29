@@ -1,110 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:yang="http://schemas.android.com/apk/res-auto"
-              android:orientation="horizontal"
-              android:descendantFocusability="blocksDescendants"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:gravity="center_vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
 
     <FrameLayout
-            android:id="@+id/puzzle_drawable_container"
-            android:layout_width="@dimen/puzzle_storage_drawable_width"
-            android:layout_height="@dimen/puzzle_storage_drawable_height"
-            android:background="@drawable/bg_card">
+        android:id="@+id/puzzle_drawable_container"
+        android:layout_width="@dimen/puzzle_storage_drawable_width"
+        android:layout_height="@dimen/puzzle_storage_drawable_height"
+        android:background="@drawable/bg_card">
+
         <ImageView
-                android:id="@+id/iv_puzzle_drawable"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerInside"/>
+            android:id="@+id/iv_puzzle_drawable"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside" />
     </FrameLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/pb_progress"
+            style="@style/Theme.ProcessingBar.controllable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-        <ProgressBar
-                android:id="@+id/pb_progress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/Theme.ProcessingBar.controllable"/>
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
             <!-- row 1 -->
             <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
                 <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-                    <ImageView android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:src="@drawable/ic_action_time"/>
+                        android:src="@drawable/ic_action_time" />
+
                     <TextView
-                            android:id="@+id/tv_timer"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                        android:id="@+id/tv_timer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-                    <ImageView android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:src="@drawable/ic_action_go_to_today"/>
+                        android:src="@drawable/ic_action_go_to_today" />
+
                     <TextView
-                            android:id="@+id/tv_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                        android:id="@+id/tv_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
             </RelativeLayout>
 
             <!-- row 2 -->
             <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
                 <LinearLayout
-                        android:id="@+id/best_time_container"
+                    android:id="@+id/best_time_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-                    <ImageView android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:src="@drawable/ic_action_good"/>
+                        android:src="@drawable/ic_action_good" />
+
                     <TextView
-                            android:id="@+id/tv_best_time"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                        android:id="@+id/tv_best_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-                    <ImageView android:layout_width="wrap_content"
-                               android:layout_height="wrap_content"
-                               android:src="@drawable/ic_action_sort_by_size_asc"/>
+                        android:src="@drawable/ic_action_sort_by_size_asc" />
+
                     <TextView
-                            android:id="@+id/tv_difficulty"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                        android:id="@+id/tv_difficulty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
             </RelativeLayout>
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

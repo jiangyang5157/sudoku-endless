@@ -3,7 +3,7 @@ package com.gmail.jiangyang5157.sudoku.puzzle.render.node;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-import com.gmail.jiangyang5157.sudoku.Pref;
+import com.gmail.jiangyang5157.sudoku.SudokuAppUtils;
 import com.gmail.jiangyang5157.sudoku.puzzle.render.Component;
 import com.gmail.jiangyang5157.sudoku.puzzle.render.State;
 
@@ -19,13 +19,13 @@ public class NormalNode extends State {
     public void update(Component component) {
         Node node = (Node) component;
         if (node.isEditable()) {
-            setBackgroundColor(Pref.NORMAL_NODE_BACKGROUND_COLOR_EDITABLE);
-            setBorderColor(Pref.NORMAL_NODE_BORDER_COLOR_EDITABLE);
-            setBorderWidth(Pref.NORMAL_NODE_BORDER_WIDTH_EDITABLE);
+            setBackgroundColor(SudokuAppUtils.NORMAL_NODE_BACKGROUND_COLOR_EDITABLE);
+            setBorderColor(SudokuAppUtils.NORMAL_NODE_BORDER_COLOR_EDITABLE);
+            setBorderWidth(SudokuAppUtils.NORMAL_NODE_BORDER_WIDTH_EDITABLE);
         } else {
-            setBackgroundColor(Pref.NORMAL_NODE_BACKGROUND_COLOR_NONEDITABLE);
-            setBorderColor(Pref.NORMAL_NODE_BORDER_COLOR_NONEDITABLE);
-            setBorderWidth(Pref.NORMAL_NODE_BORDER_WIDTH_NONEDITABLE);
+            setBackgroundColor(SudokuAppUtils.NORMAL_NODE_BACKGROUND_COLOR_NONEDITABLE);
+            setBorderColor(SudokuAppUtils.NORMAL_NODE_BORDER_COLOR_NONEDITABLE);
+            setBorderWidth(SudokuAppUtils.NORMAL_NODE_BORDER_WIDTH_NONEDITABLE);
         }
     }
 
@@ -35,6 +35,6 @@ public class NormalNode extends State {
         component.renderBorder(canvas, paint, getBorderWidth(), getBorderColor());
 
         Node node = (Node) component;
-        node.renderValue(canvas, paint, Pref.NORMAL_NODE_TEXT_COLOR, component.width() * Pref.NORMAL_NODE_TEXT_SCALE);
+        node.renderValue(canvas, paint, SudokuAppUtils.NORMAL_NODE_TEXT_COLOR, component.width() * SudokuAppUtils.NORMAL_NODE_TEXT_SCALE);
     }
 }

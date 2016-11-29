@@ -6,12 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.gmail.jiangyang5157.sudoku.Pref;
+import com.gmail.jiangyang5157.sudoku.SudokuAppUtils;
 import com.gmail.jiangyang5157.sudoku.R;
 import com.gmail.jiangyang5157.sudoku.component.BaseFragment;
 
 public abstract class BasePuzzleFragment extends BaseFragment implements PuzzleView.Listener {
-    private final static String TAG = "[BasePuzzleFragment]";
 
     protected PuzzleView puzzleView = null;
 
@@ -24,7 +23,7 @@ public abstract class BasePuzzleFragment extends BaseFragment implements PuzzleV
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Pref.fetchColors(getActivity());
+        SudokuAppUtils.fetchColors(getActivity());
     }
 
     @Override

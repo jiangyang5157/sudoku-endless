@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.gmail.jiangyang5157.sudoku.SudokuAppUtils;
 import com.gmail.jiangyang5157.sudoku.component.BaseExpandableListFragment;
-import com.gmail.jiangyang5157.sudoku.Pref;
 
 import java.util.ArrayList;
 
@@ -24,7 +24,7 @@ public class ColorPalettesFragment extends BaseExpandableListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Pref.fetchColors(getActivity());
+        SudokuAppUtils.fetchColors(getActivity());
     }
 
     @Override
@@ -47,16 +47,16 @@ public class ColorPalettesFragment extends BaseExpandableListFragment {
 
     public ArrayList<ColorPref> buildColorPrefs() {
         ArrayList<ColorPref> ret = new ArrayList<ColorPref>();
-        ret.add(new ColorPref("Puzzle Background", "PUZZLE_BACKGROUND_COLOR", Pref.PUZZLE_BACKGROUND_COLOR));
+        ret.add(new ColorPref("Puzzle Background", "PUZZLE_BACKGROUND_COLOR", SudokuAppUtils.PUZZLE_BACKGROUND_COLOR));
 
-        ret.add(new ColorPref("Normal Node Text", "NORMAL_NODE_TEXT_COLOR", Pref.NORMAL_NODE_TEXT_COLOR));
-        ret.add(new ColorPref("Related Node Text", "SELECTED_NODE_TEXT_COLOR", Pref.SELECTED_NODE_TEXT_COLOR));
+        ret.add(new ColorPref("Normal Node Text", "NORMAL_NODE_TEXT_COLOR", SudokuAppUtils.NORMAL_NODE_TEXT_COLOR));
+        ret.add(new ColorPref("Related Node Text", "SELECTED_NODE_TEXT_COLOR", SudokuAppUtils.SELECTED_NODE_TEXT_COLOR));
 
-        ret.add(new ColorPref("Node Border", "NORMAL_NODE_BORDER_COLOR_EDITABLE", Pref.NORMAL_NODE_BORDER_COLOR_EDITABLE));
+        ret.add(new ColorPref("Node Border", "NORMAL_NODE_BORDER_COLOR_EDITABLE", SudokuAppUtils.NORMAL_NODE_BORDER_COLOR_EDITABLE));
 
-        ret.add(new ColorPref("Normal Editable Node Background", "NORMAL_NODE_BACKGROUND_COLOR_EDITABLE", Pref.NORMAL_NODE_BACKGROUND_COLOR_EDITABLE));
-        ret.add(new ColorPref("Normal Non-Editable Node Background", "NORMAL_NODE_BACKGROUND_COLOR_NONEDITABLE", Pref.NORMAL_NODE_BACKGROUND_COLOR_NONEDITABLE));
-        ret.add(new ColorPref("Related Node Background", "RELATED_NODE_BACKGROUND_COLOR_EDITABLE", Pref.RELATED_NODE_BACKGROUND_COLOR_EDITABLE));
+        ret.add(new ColorPref("Normal Editable Node Background", "NORMAL_NODE_BACKGROUND_COLOR_EDITABLE", SudokuAppUtils.NORMAL_NODE_BACKGROUND_COLOR_EDITABLE));
+        ret.add(new ColorPref("Normal Non-Editable Node Background", "NORMAL_NODE_BACKGROUND_COLOR_NONEDITABLE", SudokuAppUtils.NORMAL_NODE_BACKGROUND_COLOR_NONEDITABLE));
+        ret.add(new ColorPref("Related Node Background", "RELATED_NODE_BACKGROUND_COLOR_EDITABLE", SudokuAppUtils.RELATED_NODE_BACKGROUND_COLOR_EDITABLE));
         return ret;
     }
 }

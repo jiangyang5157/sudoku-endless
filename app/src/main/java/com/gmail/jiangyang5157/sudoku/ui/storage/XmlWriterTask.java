@@ -11,6 +11,7 @@ import java.util.HashSet;
 public class XmlWriterTask extends AsyncTask<HashSet<Long>, Integer, File> {
 
     public interface Listener {
+
         public void onPreExecute();
 
         public void onPostExecute(File result);

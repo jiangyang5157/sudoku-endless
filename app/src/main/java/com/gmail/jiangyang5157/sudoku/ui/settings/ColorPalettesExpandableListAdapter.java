@@ -8,6 +8,7 @@ import android.widget.BaseExpandableListAdapter;
 import java.util.ArrayList;
 
 public class ColorPalettesExpandableListAdapter extends BaseExpandableListAdapter {
+
     private Context mContext = null;
 
     private ArrayList<ColorPref> colorPrefs = null;

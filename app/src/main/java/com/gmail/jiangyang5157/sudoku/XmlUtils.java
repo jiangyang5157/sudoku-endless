@@ -116,7 +116,7 @@ public class XmlUtils {
         } catch (TransformerException e) {
             e.printStackTrace();
         }
-        Log.d(TAG, "write to - " + path);
+        Log.d(TAG, "Write: " + path);
         try {
             fos.flush();
             fos.close();
@@ -138,7 +138,7 @@ public class XmlUtils {
             e.printStackTrace();
         }
         File file = new File(path);
-        Log.d(TAG, "read - " + file.getAbsolutePath());
+        Log.d(TAG, "Read: " + file.getAbsolutePath());
         Document doc = null;
         try {
             doc = db.parse(file);
@@ -165,7 +165,7 @@ public class XmlUtils {
                 String timer = "0";
                 String best_time = ePuzzle.getAttribute(PuzzleTable.KEY_BEST_TIME);
                 long rowId = AppDatabaseApi.getInstance(context).insertPuzzle(cache, drawable, longDate, timer, best_time);
-                Log.d(TAG, "read in rowId - " + rowId);
+                Log.d(TAG, "Read rowId:" + rowId);
             }
         }
 

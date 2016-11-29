@@ -3,6 +3,7 @@ package com.gmail.jiangyang5157.sudoku.puzzle.render;
 import java.util.HashMap;
 
 public abstract class StateControler {
+
     private HashMap<Integer, State> states = null;
 
     private State state = null;

@@ -57,15 +57,13 @@
     <string name="resume">Resume</string>
     <string name="validate">Validate</string>
 
-    <string name="msg_no_related_launcher">No related launcher has been found.</string>
-    <string name="msg_no_external_storage">No external storage has been found.</string>
-    <string name="msg_wrong_format">The format cannot be identified.</string>
-    <string name="msg_empty_puzzle_storage">It is an empty puzzle storage, You can trigger a new puzzle or import puzzle
-        file.
-    </string>
+    <string name="msg_no_related_launcher">No related launcher has been found</string>
+    <string name="msg_no_external_storage">No external storage has been found</string>
+    <string name="msg_wrong_format">The format cannot be identified</string>
+    <string name="msg_empty_puzzle_storage">It is an empty puzzle storage, You can trigger a new puzzle or import puzzle file</string>
     <string name="msg_discard">Do you want to discard them completely?</string>
-    <string name="msg_completed">Well done, you have completed the the puzzle.</string>
-    <string name="msg_new_puzzle">You can find and resume previous puzzle in the storage.</string>
+    <string name="msg_completed">Well done, you have completed the the puzzle</string>
+    <string name="msg_new_puzzle">You can find and resume previous puzzle in the storage</string>
     <string name="msg_restart">Do you want to erase current progress?</string>
     <string name="msg_reset">Do you want to reset to the default configuration?</string>
 

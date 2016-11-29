@@ -12,7 +12,6 @@ import com.gmail.jiangyang5157.sudoku.R;
  * Time: 11:44
  */
 public class PuzzleStorageActivity extends BaseActivity {
-    private final static String TAG = "[PuzzleStorageActivity]";
 
     private PuzzleStorageFragment mPuzzleStorageFragment = null;
 

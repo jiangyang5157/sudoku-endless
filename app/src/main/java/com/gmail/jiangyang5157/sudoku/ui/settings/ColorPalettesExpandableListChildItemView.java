@@ -17,6 +17,7 @@ public class ColorPalettesExpandableListChildItemView extends FrameLayout {
     private ColorPref mColorPref = null;
 
     private ImageView ivColorDrawable = null;
+
     private TextView tvHexColor = null;
 
     private Listener mListener = null;

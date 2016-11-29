@@ -16,6 +16,7 @@ import com.gmail.jiangyang5157.sudoku.puzzle.render.RenderThread;
 import com.gmail.jiangyang5157.sudoku.puzzle.render.node.Node;
 import com.gmail.jiangyang5157.tookit.android.base.DeviceUtils;
 import com.gmail.jiangyang5157.tookit.android.base.EncodeUtils;
+import com.gmail.jiangyang5157.tookit.base.data.ArrayUtils;
 
 import java.io.IOException;
 
@@ -59,8 +60,6 @@ public class PuzzleView extends SurfaceView implements SurfaceHolder.Callback, K
 
     @Override
     public void generatePuzzle(int[][] puzzleValues, int[][] values) {
-//        ArrayUtils.arrayPrinter(puzzleValues);
-//        ArrayUtils.arrayPrinter(values);
         puzzleImpl.generatePuzzle(puzzleValues, values);
         puzzleImpl.reset();
 
@@ -110,13 +109,13 @@ public class PuzzleView extends SurfaceView implements SurfaceHolder.Callback, K
 
     @Override
     public void surfaceChanged(SurfaceHolder surfaceHolder, int format, int width, int height) {
-        Log.d(TAG, "surfaceChanged - " + width + ", " + height);
+//        Log.d(TAG, "surfaceChanged - " + width + ", " + height);
         setCanvasSize(width, height);
     }
 
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        Log.d(TAG, "surfaceCreated");
+//        Log.d(TAG, "surfaceCreated");
         if (renderThread == null || renderThread.getState() == Thread.State.TERMINATED) {
             renderThread = new RenderThread(surfaceHolder, puzzleImpl, FPS);
         }
@@ -127,7 +126,7 @@ public class PuzzleView extends SurfaceView implements SurfaceHolder.Callback, K
 
     @Override
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        Log.d(TAG, "surfaceDestroyed");
+//        Log.d(TAG, "surfaceDestroyed");
         renderThread.onStop();
     }
 
@@ -137,11 +136,9 @@ public class PuzzleView extends SurfaceView implements SurfaceHolder.Callback, K
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                Log.d(TAG, "onTouchEvent - ACTION_DOWN");
                 renderThread.onResume();
                 break;
             case MotionEvent.ACTION_UP:
-                Log.d(TAG, "onTouchEvent - ACTION_UP");
                 renderThread.onPause(true);
                 break;
             case MotionEvent.ACTION_MOVE:

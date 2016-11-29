@@ -1,13 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:yang="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/menu_puzzle_storage"
-          android:title="@string/puzzle_storage"
-          android:orderInCategory="49"
-          android:icon="@drawable/ic_action_storage"
-          yang:showAsAction="always" />
-    <item android:id="@+id/menu_settings"
-        android:title="@string/settings"
-        android:orderInCategory="50"
+    <item
+        android:id="@+id/menu_puzzle_storage"
+        android:icon="@drawable/ic_action_storage"
+        android:orderInCategory="49"
+        android:title="@string/puzzle_storage"
+        yang:showAsAction="always" />
+    <item
+        android:id="@+id/menu_settings"
         android:icon="@drawable/ic_action_settings"
+        android:orderInCategory="50"
+        android:title="@string/settings"
         yang:showAsAction="always" />
 </menu>

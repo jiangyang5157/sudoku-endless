@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.ViewConfiguration;
@@ -14,20 +15,14 @@ import com.gmail.jiangyang5157.sudoku.R;
 import com.gmail.jiangyang5157.tookit.android.base.AppUtils;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Set;
 
 /**
  * User: Yang
  * Date: 2014/11/17
  * Time: 23:28
  */
-public abstract class BaseActivity extends ActionBarActivity implements
+public abstract class BaseActivity extends AppCompatActivity implements
         SharedPreferences.OnSharedPreferenceChangeListener {
-    private static final String TAG = "[BaseActivity]";
 
     public static final String PROCESSING_DIALOG_TAG = "PROCESSING_DIALOG_TAG";
 
@@ -50,7 +45,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
         boolean ret = false;
         ProcessingDialog processingDialog = getProcessingDialog();
         if (processingDialog != null) {
-            // in case we dismiss the dialog after [onSaveInstanceState()]
+            // in case we dismiss the dialog after onSaveInstanceState()
             processingDialog.dismissAllowingStateLoss();
             ret = true;
         }
@@ -102,7 +97,6 @@ public abstract class BaseActivity extends ActionBarActivity implements
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        Log.d(TAG, "onSharedPreferenceChanged - key = " + key);
     }
 
     @Override

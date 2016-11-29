@@ -1,28 +1,12 @@
 package com.gmail.jiangyang5157.sudoku;
 
-import com.gmail.jiangyang5157.tookit.base.data.structure.contact.EmailAddress;
-import com.gmail.jiangyang5157.tookit.base.data.structure.contact.Type;
-import com.gmail.jiangyang5157.tookit.base.data.structure.contact.person.Author;
-
-import java.util.ArrayList;
-
 /**
  * User: Yang
  * Date: 2014/11/16
  * Time: 23:40
  */
 public class Config {
-    private static final String TAG = "[Config]";
-
     public static final boolean DEBUG = false;
-
-    public static ArrayList<Author> authors = new ArrayList<Author>();
-
-    static {
-        Author author = new Author("Yang", "Jiang");
-        author.putEmailAddress(Type.HOME, new EmailAddress("jiangyang5157", "gmail.com"));
-        authors.add(author);
-    }
 
     public static final String PUZZLE_FILE_END = "se";
 

@@ -176,7 +176,7 @@ public class PuzzleFragment extends BasePuzzleFragment implements KeypadFragment
         }
         String best_time = String.valueOf(mBestTime);
         rowId = AppDatabaseApi.getInstance(getActivity()).insertPuzzle(cache, drawable, longDate, timer, best_time);
-        Log.d(TAG, "insertPuzzle - rowId = " + rowId);
+//        Log.d(TAG, "insertPuzzle - rowId = " + rowId);
 
         if (puzzleView.isCompleted(false)) {
             onCompleted();
@@ -281,7 +281,7 @@ public class PuzzleFragment extends BasePuzzleFragment implements KeypadFragment
         String stringTimer = String.valueOf(timer);
         String stringBestTime = String.valueOf(mBestTime);
         int result = AppDatabaseApi.getInstance(getActivity()).updatePuzzle(rowId, cache, drawable, longDate, stringTimer, stringBestTime);
-        Log.d(TAG, "updatePuzzle - result = " + result);
+//        Log.d(TAG, "updatePuzzle - result = " + result);
         return true;
     }
 

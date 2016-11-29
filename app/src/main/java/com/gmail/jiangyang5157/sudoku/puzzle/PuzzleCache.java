@@ -3,7 +3,7 @@ package com.gmail.jiangyang5157.sudoku.puzzle;
 import java.io.Serializable;
 
 public class PuzzleCache implements Serializable {
-    // 2 ^ 60
+
     private static final long serialVersionUID = 2305843009213693952L;
 
     private NodeCache[][] nodesCache = null;

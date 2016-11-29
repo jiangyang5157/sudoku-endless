@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class PuzzleGeneratorTask extends AsyncTask<Level, Integer, ArrayList<int[][]>> {
 
     public interface Listener {
+
         public void onPreExecute();
 
         public void onPostExecute(ArrayList<int[][]> result);

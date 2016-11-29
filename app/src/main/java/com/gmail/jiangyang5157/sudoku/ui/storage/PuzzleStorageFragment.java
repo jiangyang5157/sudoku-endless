@@ -75,7 +75,6 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
-        Log.d(TAG, "onPrepareOptionsMenu");
         menu.clear();
         if (mAdapter != null && mAdapter.getSelectedRowIdCount() > 0) {
             getActivity().getMenuInflater().inflate(R.menu.puzzle_storage_selected, menu);
@@ -205,7 +204,6 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
 
     @Override
     public void onListItemClick(ListView listView, View v, int position, long rowId) {
-        Log.d(TAG, "onListItemClick - position=" + position + ", rowId=" + rowId);
         if (rowId == -1) {
             // empty puzzle storage header/footer view click
             getActivity().onNavigateUpFromChild(getActivity());
@@ -218,13 +216,13 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        Log.d(TAG, "onCreateLoader - id = " + id);
+//        Log.d(TAG, "onCreateLoader - id = " + id);
         return new PuzzleCursorLoader(getActivity(), AppDatabaseApi.buildOrderByDesc(PuzzleTable.KEY_DATE));
     }
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        Log.d(TAG, "onLoadFinished - id = " + loader.getId() + ", count = " + data.getCount());
+//        Log.d(TAG, "onLoadFinished - id = " + loader.getId() + ", count = " + data.getCount());
         int count = data.getCount();
         if (count == 0) {
             getListView().removeFooterView(emptyPuzzleStorageListFooter);

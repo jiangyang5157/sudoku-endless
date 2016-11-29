@@ -13,7 +13,7 @@ import com.gmail.jiangyang5157.sudoku.puzzle.render.cell.SelectedCell;
 import java.util.ArrayList;
 
 /**
- * Created by 洋 on 2014/12/13.
+ * Created by Yang on 2014/12/13.
  */
 public class Node extends EditableComponent {
 

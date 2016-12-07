@@ -205,7 +205,7 @@ public class PuzzleView extends SurfaceView implements SurfaceHolder.Callback, K
         SparseIntArray ret = new SparseIntArray();
         SparseIntArray[] rows = new SparseIntArray[Config.SUDOKU_SIZE];
         SparseIntArray[] columns = new SparseIntArray[Config.SUDOKU_SIZE];
-        SparseIntArray[] blocks = new SparseIntArray[Config.SUDOKU_BLOCKS_COUNT];
+        SparseIntArray[] blocks = new SparseIntArray[Config.SUDOKU_SIZE];
         if (board != null) {
             for (int i = 0; i < Config.SUDOKU_SIZE; i++) {
                 if (rows[i] == null) {

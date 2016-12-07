@@ -5,6 +5,7 @@ import android.content.CursorLoader;
 import android.database.Cursor;
 
 public class PuzzleCursorLoader extends CursorLoader {
+
     public static final int QUERY_PUZZLES = 1000;
 
     private Context context = null;

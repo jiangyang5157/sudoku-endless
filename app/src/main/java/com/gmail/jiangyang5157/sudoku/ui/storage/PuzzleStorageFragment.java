@@ -1,5 +1,6 @@
 package com.gmail.jiangyang5157.sudoku.ui.storage;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.LoaderManager;
@@ -8,8 +9,10 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.view.*;
 import android.widget.ListView;
 
@@ -33,6 +36,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import static android.support.v4.content.PermissionChecker.checkSelfPermission;
+
 /**
  * User: Yang
  * Date: 2014/11/23
@@ -45,11 +50,15 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
 
     private static final int REQUESTCODE_FILE_CHOOSER = 100;
 
+    private static final int PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1000;
+
     private View emptyPuzzleStorageListFooter = null;
 
     private PuzzleStorageCursorAdapter mAdapter = null;
 
     private XmlWriterTask task = null;
+
+    private Uri uriFromFileChooser;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -248,6 +257,7 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
         mAdapter.changeCursor(null);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -258,17 +268,44 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
                 break;
             case REQUESTCODE_FILE_CHOOSER:
                 if (resultCode == Activity.RESULT_OK && data != null) {
-                    String path = DeviceUtils.getPath(getActivity(), data.getData());
-                    if (path.endsWith("." + Config.PUZZLE_FILE_END)) {
-                        XmlUtils.read(getActivity(), path);
-                        getLoaderManager().restartLoader(PuzzleCursorLoader.QUERY_PUZZLES, null, this);
+                    uriFromFileChooser = data.getData();
+                    if (checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                        // Should we show an explanation?
+                        if (shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                            // Explain to the user why we need to read the contacts
+                        }
+                        requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+                        return;
                     } else {
-                        AppUtils.buildToast(getActivity(), R.string.msg_wrong_format);
+                        handleFileChooserUri();
                     }
                 }
                 break;
             default:
                 break;
+        }
+    }
+
+    private void handleFileChooserUri() {
+        String path = DeviceUtils.getPath(getActivity(), uriFromFileChooser);
+        if (path.endsWith("." + Config.PUZZLE_FILE_END)) {
+            XmlUtils.read(getActivity(), path);
+            getLoaderManager().restartLoader(PuzzleCursorLoader.QUERY_PUZZLES, null, this);
+        } else {
+            AppUtils.buildToast(getActivity(), R.string.msg_wrong_format);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(final int requestCode, @NonNull final String[] permissions, @NonNull final int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted.
+                handleFileChooserUri();
+            } else {
+                // User refused to grant permission.
+            }
         }
     }
 

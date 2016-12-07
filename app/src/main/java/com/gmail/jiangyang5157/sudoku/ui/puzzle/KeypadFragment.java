@@ -16,7 +16,7 @@ import com.gmail.jiangyang5157.sudoku.R;
  */
 public class KeypadFragment extends BaseFragment {
 
-    public static final String FRAGMENT_TAG = "keypad_fragment";
+    public static final String FRAGMENT_TAG = "KeypadFragment";
 
     public interface Listener {
         

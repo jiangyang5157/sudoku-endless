@@ -18,7 +18,7 @@ import com.gmail.jiangyang5157.sudoku.R;
 public class SudokuActivity extends BaseActivity implements KeypadFragment.Listener {
     private final static String TAG = "[SudokuActivity]";
 
-    public static final int REQUESTCODE = 1000;
+    public static final int ACTIVITY_REQUESTCODE = 100;
 
     private PuzzleFragment puzzleFragment = null;
 

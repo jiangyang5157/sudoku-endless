@@ -46,11 +46,11 @@ import static android.support.v4.content.PermissionChecker.checkSelfPermission;
 public class PuzzleStorageFragment extends BaseListFragment implements LoaderManager.LoaderCallbacks<Cursor>, PuzzleStorageCursorAdapter.Listener, SpecialKeyListener, XmlWriterTask.Listener {
     private final static String TAG = "[PuzzleStorageFragment]";
 
-    public static final String FRAGMENT_TAG = "puzzle_storage_fragment";
+    public static final String FRAGMENT_TAG = "PuzzleStorageFragment";
 
-    private static final int REQUESTCODE_FILE_CHOOSER = 100;
+    private static final int FILE_CHOOSER_REQUESTCODE = 200;
 
-    private static final int PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1000;
+    private static final int READ_EXTERNAL_STORAGE_PERMISSIONS_REQUESTCODE = 1000;
 
     private View emptyPuzzleStorageListFooter = null;
 
@@ -194,7 +194,7 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
         intent.setType("*/*");
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         try {
-            startActivityForResult(Intent.createChooser(intent, AppUtils.getString(getActivity(), R.string.import_puzzle)), REQUESTCODE_FILE_CHOOSER);
+            startActivityForResult(Intent.createChooser(intent, AppUtils.getString(getActivity(), R.string.import_puzzle)), FILE_CHOOSER_REQUESTCODE);
         } catch (ActivityNotFoundException ex) {
             AppUtils.buildToast(getActivity(), R.string.msg_no_related_launcher);
         }
@@ -219,7 +219,7 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
         } else {
             Intent intent = new Intent(getActivity(), SudokuActivity.class);
             intent.putExtra(BasePuzzleFragment.KEY_ROWID, rowId);
-            startActivityForResult(intent, SudokuActivity.REQUESTCODE);
+            startActivityForResult(intent, SudokuActivity.ACTIVITY_REQUESTCODE);
         }
     }
 
@@ -262,11 +262,11 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
-            case SudokuActivity.REQUESTCODE:
+            case SudokuActivity.ACTIVITY_REQUESTCODE:
                 mAdapter.unSelectedAllRowIds();
                 getLoaderManager().restartLoader(PuzzleCursorLoader.QUERY_PUZZLES, null, this);
                 break;
-            case REQUESTCODE_FILE_CHOOSER:
+            case FILE_CHOOSER_REQUESTCODE:
                 if (resultCode == Activity.RESULT_OK && data != null) {
                     uriFromFileChooser = data.getData();
                     if (checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -274,7 +274,7 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
                         if (shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE)) {
                             // Explain to the user why we need to read the contacts
                         }
-                        requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+                        requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, READ_EXTERNAL_STORAGE_PERMISSIONS_REQUESTCODE);
                         return;
                     } else {
                         handleFileChooserUri();
@@ -299,7 +299,7 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
     @Override
     public void onRequestPermissionsResult(final int requestCode, @NonNull final String[] permissions, @NonNull final int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE) {
+        if (requestCode == READ_EXTERNAL_STORAGE_PERMISSIONS_REQUESTCODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Permission granted.
                 handleFileChooserUri();

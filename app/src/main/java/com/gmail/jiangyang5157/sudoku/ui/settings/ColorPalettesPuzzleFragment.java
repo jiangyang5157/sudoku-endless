@@ -7,7 +7,7 @@ import com.gmail.jiangyang5157.sudoku.ui.puzzle.BasePuzzleFragment;
 
 public class ColorPalettesPuzzleFragment extends BasePuzzleFragment {
 
-    public static final String FRAGMENT_TAG = "color_palettes_puzzle_fragment";
+    public static final String FRAGMENT_TAG = "ColorPalettesPuzzleFragment";
 
     private NodeCache[][] mNodesCache = null;
 

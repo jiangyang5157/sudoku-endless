@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class ColorPalettesFragment extends BaseExpandableListFragment {
 
-    public static final String FRAGMENT_TAG = "color_palettes_fragment";
+    public static final String FRAGMENT_TAG = "ColorPalettesFragment";
 
     private ColorPalettesExpandableListAdapter mColorPalettesExpandableListAdapter = null;
 

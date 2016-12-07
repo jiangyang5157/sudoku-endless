@@ -18,7 +18,7 @@ import com.gmail.jiangyang5157.tookit.android.base.AppUtils;
  */
 public class AboutFragment extends BaseFragment {
 
-    public static final String FRAGMENT_TAG = "about_fragment";
+    public static final String FRAGMENT_TAG = "AboutFragment";
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

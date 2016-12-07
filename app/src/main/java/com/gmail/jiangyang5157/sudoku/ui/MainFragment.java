@@ -38,8 +38,6 @@ public class MainFragment extends BaseFragment {
         IconButton ibLevelNightmare = (IconButton) view.findViewById(R.id.ib_level_nightmare);
         IconButton ibLevelHell = (IconButton) view.findViewById(R.id.ib_level_hell);
 
-        validateResume();
-
         ibLevelEasy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,24 +84,18 @@ public class MainFragment extends BaseFragment {
     public void actionNewPuzzle(long rowId) {
         Intent intent = new Intent(getActivity(), SudokuActivity.class);
         intent.putExtra(BasePuzzleFragment.KEY_ROWID, rowId);
-        startActivityForResult(intent, SudokuActivity.REQUESTCODE);
+        startActivity(intent);
     }
 
     public void actionNewPuzzle(Level level) {
         Intent intent = new Intent(getActivity(), SudokuActivity.class);
         intent.putExtra(BasePuzzleFragment.KEY_LEVEL_CACHE, level);
-        startActivityForResult(intent, SudokuActivity.REQUESTCODE);
+        startActivity(intent);
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case SudokuActivity.REQUESTCODE:
-                validateResume();
-                break;
-            default:
-                break;
-        }
+    public void onResume() {
+        super.onResume();
+        validateResume();
     }
 }

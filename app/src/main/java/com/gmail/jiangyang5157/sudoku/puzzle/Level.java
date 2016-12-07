@@ -25,7 +25,7 @@ public class Level implements Serializable {
     }
 
     public static final int randomPick(@NonNull final int[] range) throws IllegalArgumentException {
-        return new Mersenne().nextInt(range[1] - range[0]) + range[0];
+        return new Mersenne().nextInt(range[1] - range[0] + 1) + range[0];
     }
 
     public Difficulty getDifficulty() {

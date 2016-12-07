@@ -207,7 +207,11 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
 
     @Override
     public void onSelectedRowIdCountChanged(int size) {
-        getActivity().setTitle(size > 0 ? String.valueOf(size) : AppUtils.getString(getActivity(), R.string.puzzle_storage));
+        if (size > 0) {
+            getActivity().setTitle(String.valueOf(size) + " " + AppUtils.getString(getActivity(), R.string.selected));
+        } else {
+            getActivity().setTitle(AppUtils.getString(getActivity(), R.string.puzzle_storage));
+        }
         getActivity().invalidateOptionsMenu();
     }
 

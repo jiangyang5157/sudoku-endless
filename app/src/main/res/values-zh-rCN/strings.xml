@@ -27,7 +27,7 @@
     <!--
     Multi-language
     -->
-    <string name="processing">处理中......</string>
+    <string name="processing">处理中...</string>
     <string name="accept">接受</string>
     <string name="decline">拒绝</string>
     <string name="ok">好的</string>
@@ -47,6 +47,7 @@
     <string name="import_puzzle">导入谜题</string>
     <string name="share">分享</string>
     <string name="select_all">全选</string>
+    <string name="selected">被选择</string>
     <string name="discard">丢弃</string>
 
     <string name="puzzle">谜题</string>
@@ -59,13 +60,13 @@
 
     <string name="msg_no_related_launcher">找不到合适的启动器</string>
     <string name="msg_no_external_storage">找不到外部存储器</string>
-    <string name="msg_wrong_format">该格式不能被识别</string>
-    <string name="msg_empty_puzzle_storage">这还是一个空的谜题贮藏所，您可以先开始一个谜题或者倒入谜题文件</string>
-    <string name="msg_discard">您是否要彻底的丢弃他们？</string>
-    <string name="msg_completed">干得好！您已经完成了谜题</string>
+    <string name="msg_wrong_format">格式错误</string>
+    <string name="msg_empty_puzzle_storage">空的谜题贮藏所。开始一个谜题或者倒入谜题文件？</string>
+    <string name="msg_discard">彻底丢弃？</string>
+    <string name="msg_completed">谜题完成</string>
     <string name="msg_new_puzzle">您能在谜题贮藏所里面找到并继续之前的谜题</string>
-    <string name="msg_restart">您是否要放弃当前的进度？</string>
-    <string name="msg_reset">您是否要重置回默认的配置？</string>
+    <string name="msg_restart">放弃当前的进度，重新开始？</string>
+    <string name="msg_reset">重置默认配置？</string>
 
     <string name="easy">简单</string>
     <string name="normal">普通</string>

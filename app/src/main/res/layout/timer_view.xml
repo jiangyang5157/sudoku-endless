@@ -10,24 +10,19 @@
         android:id="@+id/nv_hour_tens"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        yang:stroke_width="@integer/action_bar_timer_stroke_width"
-        yang:text_color="@color/white"
-        yang:text_size="@integer/action_bar_timer_size" />
+        yang:text_color="@color/white" />
 
     <com.gmail.jiangyang5157.sudoku.component.timer.NumberView
         android:id="@+id/nv_hour_ones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        yang:stroke_width="@integer/action_bar_timer_stroke_width"
-        yang:text_color="@color/white"
-        yang:text_size="@integer/action_bar_timer_size" />
+        yang:text_color="@color/white" />
 
     <TextView
         android:id="@+id/tv_hour_colon_minute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/timer_colon_margin_bottom"
-        android:padding="@dimen/timer_colon_padding"
+        android:layout_margin="@dimen/timer_colon_margin"
         android:text="@string/colon_key"
         android:textColor="@color/white"
         android:textSize="@dimen/timer_colon_text_size"
@@ -37,24 +32,19 @@
         android:id="@+id/nv_minute_tens"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        yang:stroke_width="@integer/action_bar_timer_stroke_width"
-        yang:text_color="@color/white"
-        yang:text_size="@integer/action_bar_timer_size" />
+        yang:text_color="@color/white" />
 
     <com.gmail.jiangyang5157.sudoku.component.timer.NumberView
         android:id="@+id/nv_minute_ones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        yang:stroke_width="@integer/action_bar_timer_stroke_width"
-        yang:text_color="@color/white"
-        yang:text_size="@integer/action_bar_timer_size" />
+        yang:text_color="@color/white" />
 
     <TextView
         android:id="@+id/tv_minute_colon_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/timer_colon_margin_bottom"
-        android:padding="@dimen/timer_colon_padding"
+        android:layout_margin="@dimen/timer_colon_margin"
         android:text="@string/colon_key"
         android:textColor="@color/white"
         android:textSize="@dimen/timer_colon_text_size"
@@ -64,16 +54,12 @@
         android:id="@+id/nv_second_tens"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        yang:stroke_width="@integer/action_bar_timer_stroke_width"
-        yang:text_color="@color/white"
-        yang:text_size="@integer/action_bar_timer_size" />
+        yang:text_color="@color/white" />
 
     <com.gmail.jiangyang5157.sudoku.component.timer.NumberView
         android:id="@+id/nv_second_ones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        yang:stroke_width="@integer/action_bar_timer_stroke_width"
-        yang:text_color="@color/white"
-        yang:text_size="@integer/action_bar_timer_size" />
+        yang:text_color="@color/white" />
 
 </LinearLayout>

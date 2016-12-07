@@ -1,15 +1,15 @@
 package com.gmail.jiangyang5157.sudoku.component.timer;
 
 public interface TimerView {
-    public int getTime();
+    int getTime();
 
-    public void setTime(int mTime, boolean update);
+    void setTime(int mTime, boolean update);
 
-    public void reset();
+    void reset();
 
-    public void pause();
+    void pause();
 
-    public void start();
+    void start();
 
-    public void start(int mTime);
+    void start(int mTime);
 }

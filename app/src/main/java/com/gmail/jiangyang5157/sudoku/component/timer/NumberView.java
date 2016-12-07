@@ -22,8 +22,8 @@ public class NumberView extends View {
 
     public static final int DEFAULT_COLOR_RES_ID = R.color.black;
 
-    public static final float DEFAULT_TEXT_SIZE = 50;
-    public static final float DEFAULT_STROKE_WIDTH = 4.0f;
+    public static final float DEFAULT_TEXT_SIZE = 55;
+    public static final float DEFAULT_STROKE_WIDTH = 5.0f;
     private static final float DEFAULT_SCALE = 1.0f;
 
     private static final int FRAME_COUNT = 24;

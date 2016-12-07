@@ -1,5 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:yang="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/menu_new_puzzle"
         android:icon="@drawable/ic_add_white_24px"

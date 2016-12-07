@@ -1,23 +1,21 @@
 <resources>
-    <dimen name="activity_horizontal_margin">8dp</dimen>
-    <dimen name="activity_vertical_margin">8dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">0dp</dimen>
+
+    <dimen name="action_bar_height">56dp</dimen>
 
     <dimen name="space">8dp</dimen>
 
-    <dimen name="action_bar_height">48dip</dimen>
-
     <dimen name="keypad_button_min_width">56dip</dimen>
     <dimen name="keypad_button_min_height">56dip</dimen>
-
     <dimen name="keypad_indention">28dip</dimen>
 
     <dimen name="icon_button_padding">24dp</dimen>
 
     <dimen name="action_bar_custom_view_margin_left">24dp</dimen>
 
-    <dimen name="timer_colon_padding">1dp</dimen>
-    <dimen name="timer_colon_margin_bottom">2dp</dimen>
-    <dimen name="timer_colon_text_size">40px</dimen>
+    <dimen name="timer_colon_margin">2dp</dimen>
+    <dimen name="timer_colon_text_size">50px</dimen>
 
     <dimen name="puzzle_drawable_width">192dp</dimen>
     <dimen name="puzzle_drawable_height">192dp</dimen>
@@ -27,7 +25,6 @@
 
     <dimen name="color_palttes_drawable_width">72dip</dimen>
     <dimen name="color_palttes_drawable_height">72dip</dimen>
-
 
     <dimen name="list_item_height_single_line">48dip</dimen>
 

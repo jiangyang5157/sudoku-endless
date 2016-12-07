@@ -216,8 +216,8 @@ public class ColorPalettesActivity extends BaseActivity implements ColorPalettes
     }
 
     @Override
-    public void onColorChanged(ColorPref colorPref) {
-        SudokuAppUtils.syncColor(this, colorPref.key, colorPref.getColor());
+    public void onColorChanged(ColorPreference colorPreference) {
+        SudokuAppUtils.syncColor(this, colorPreference.key, colorPreference.getColor());
         mColorPalettesPuzzleFragment.refreshPuzzleView();
     }
 }

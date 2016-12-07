@@ -11,20 +11,20 @@ public class ColorPalettesExpandableListAdapter extends BaseExpandableListAdapte
 
     private Context mContext = null;
 
-    private ArrayList<ColorPref> colorPrefs = null;
+    private ArrayList<ColorPreference> colorPreferences = null;
 
     public ColorPalettesExpandableListAdapter(Context context) {
         this(context, null);
     }
 
-    public ColorPalettesExpandableListAdapter(Context context, ArrayList<ColorPref> colorPrefs) {
+    public ColorPalettesExpandableListAdapter(Context context, ArrayList<ColorPreference> colorPreferences) {
         this.mContext = context;
-        this.colorPrefs = colorPrefs;
+        this.colorPreferences = colorPreferences;
     }
 
     @Override
     public int getGroupCount() {
-        return colorPrefs == null ? 0 : colorPrefs.size();
+        return colorPreferences == null ? 0 : colorPreferences.size();
     }
 
     @Override
@@ -33,8 +33,8 @@ public class ColorPalettesExpandableListAdapter extends BaseExpandableListAdapte
     }
 
     @Override
-    public ColorPref getGroup(int groupPosition) {
-        return colorPrefs.get(groupPosition);
+    public ColorPreference getGroup(int groupPosition) {
+        return colorPreferences.get(groupPosition);
     }
 
     @Override
@@ -69,7 +69,7 @@ public class ColorPalettesExpandableListAdapter extends BaseExpandableListAdapte
             holder = (ColorPalettesExpandableListGroupItemView.ViewHolder) convertView.getTag();
         }
         holder.self.setExpanded(isExpanded);
-        holder.self.setTitle(colorPrefs.get(groupPosition).title);
+        holder.self.setTitle(colorPreferences.get(groupPosition).title);
 
         return convertView;
     }
@@ -86,7 +86,7 @@ public class ColorPalettesExpandableListAdapter extends BaseExpandableListAdapte
             holder = (ColorPalettesExpandableListChildItemView.ViewHolder) convertView.getTag();
         }
 
-        holder.self.setColorPref(colorPrefs.get(groupPosition));
+        holder.self.setColorPref(colorPreferences.get(groupPosition));
 
         return convertView;
     }
@@ -96,11 +96,11 @@ public class ColorPalettesExpandableListAdapter extends BaseExpandableListAdapte
         return false;
     }
 
-    public ArrayList<ColorPref> getColorPrefs() {
-        return colorPrefs;
+    public ArrayList<ColorPreference> getColorPreferences() {
+        return colorPreferences;
     }
 
-    public void setColorPrefs(ArrayList<ColorPref> colorPrefs) {
-        this.colorPrefs = colorPrefs;
+    public void setColorPreferences(ArrayList<ColorPreference> colorPreferences) {
+        this.colorPreferences = colorPreferences;
     }
 }

@@ -2,7 +2,7 @@ package com.gmail.jiangyang5157.sudoku.ui.settings;
 
 import android.graphics.Color;
 
-public class ColorPref {
+public class ColorPreference {
     String title;
     String key;
     int r;
@@ -10,11 +10,11 @@ public class ColorPref {
     int b;
     int a;
 
-    ColorPref(String title, String key, int color) {
+    ColorPreference(String title, String key, int color) {
         this(title, key, Color.red(color), Color.green(color), Color.blue(color), Color.alpha(color));
     }
 
-    ColorPref(String title, String key, int r, int g, int b, int a) {
+    ColorPreference(String title, String key, int r, int g, int b, int a) {
         this.title = title;
         this.key = key;
         this.r = r;

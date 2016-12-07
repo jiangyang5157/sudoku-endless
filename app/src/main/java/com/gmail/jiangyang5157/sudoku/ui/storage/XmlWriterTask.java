@@ -12,9 +12,9 @@ public class XmlWriterTask extends AsyncTask<HashSet<Long>, Integer, File> {
 
     public interface Listener {
 
-        public void onPreExecute();
+        void onPreExecute();
 
-        public void onPostExecute(File result);
+        void onPostExecute(File result);
     }
 
     private Context mContext = null;

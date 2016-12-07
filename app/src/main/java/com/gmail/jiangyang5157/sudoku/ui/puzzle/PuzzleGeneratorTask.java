@@ -109,5 +109,4 @@ public class PuzzleGeneratorTask extends AsyncTask<Level, Integer, ArrayList<int
         }
         return ret;
     }
-
 }

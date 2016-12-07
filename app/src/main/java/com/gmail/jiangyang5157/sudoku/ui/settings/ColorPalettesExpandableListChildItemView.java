@@ -14,7 +14,7 @@ import com.gmail.jiangyang5157.tookit.android.base.AppUtils;
 
 public class ColorPalettesExpandableListChildItemView extends FrameLayout {
 
-    private ColorPref mColorPref = null;
+    private ColorPreference mColorPreference = null;
 
     private ImageView ivColorDrawable = null;
 
@@ -23,7 +23,7 @@ public class ColorPalettesExpandableListChildItemView extends FrameLayout {
     private Listener mListener = null;
 
     public interface Listener {
-        public void onColorChanged(ColorPref colorPref);
+        public void onColorChanged(ColorPreference colorPreference);
     }
 
     private SeekBar sbRed = null;
@@ -48,13 +48,13 @@ public class ColorPalettesExpandableListChildItemView extends FrameLayout {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {
-                    mColorPref.r = progress;
-                    int color = mColorPref.getColor();
+                    mColorPreference.r = progress;
+                    int color = mColorPreference.getColor();
                     setColorDrawable(color);
                     setHexColor(color);
 
                     if (mListener != null) {
-                        mListener.onColorChanged(mColorPref);
+                        mListener.onColorChanged(mColorPreference);
                     }
                 }
             }
@@ -72,13 +72,13 @@ public class ColorPalettesExpandableListChildItemView extends FrameLayout {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {
-                    mColorPref.g = progress;
-                    int color = mColorPref.getColor();
+                    mColorPreference.g = progress;
+                    int color = mColorPreference.getColor();
                     setColorDrawable(color);
                     setHexColor(color);
 
                     if (mListener != null) {
-                        mListener.onColorChanged(mColorPref);
+                        mListener.onColorChanged(mColorPreference);
                     }
                 }
             }
@@ -96,13 +96,13 @@ public class ColorPalettesExpandableListChildItemView extends FrameLayout {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {
-                    mColorPref.b = progress;
-                    int color = mColorPref.getColor();
+                    mColorPreference.b = progress;
+                    int color = mColorPreference.getColor();
                     setColorDrawable(color);
                     setHexColor(color);
 
                     if (mListener != null) {
-                        mListener.onColorChanged(mColorPref);
+                        mListener.onColorChanged(mColorPreference);
                     }
                 }
             }
@@ -120,13 +120,13 @@ public class ColorPalettesExpandableListChildItemView extends FrameLayout {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if (fromUser) {
-                    mColorPref.a = progress;
-                    int color = mColorPref.getColor();
+                    mColorPreference.a = progress;
+                    int color = mColorPreference.getColor();
                     setColorDrawable(color);
                     setHexColor(color);
 
                     if (mListener != null) {
-                        mListener.onColorChanged(mColorPref);
+                        mListener.onColorChanged(mColorPreference);
                     }
                 }
             }
@@ -143,12 +143,12 @@ public class ColorPalettesExpandableListChildItemView extends FrameLayout {
         this.addView(view);
     }
 
-    public void setColorPref(ColorPref colorPref) {
-        this.mColorPref = colorPref;
-        int color = mColorPref.getColor();
+    public void setColorPref(ColorPreference colorPreference) {
+        this.mColorPreference = colorPreference;
+        int color = mColorPreference.getColor();
         setColorDrawable(color);
         setHexColor(color);
-        setColor(mColorPref);
+        setColor(mColorPreference);
     }
 
     private void setColorDrawable(int color) {
@@ -163,8 +163,8 @@ public class ColorPalettesExpandableListChildItemView extends FrameLayout {
         ivColorDrawable.setImageDrawable(colorDrawable);
     }
 
-    private void setColor(ColorPref colorPref) {
-        setColor(colorPref.r, colorPref.g, colorPref.b, colorPref.a);
+    private void setColor(ColorPreference colorPreference) {
+        setColor(colorPreference.r, colorPreference.g, colorPreference.b, colorPreference.a);
     }
 
     private void setColor(int r, int g, int b, int a) {

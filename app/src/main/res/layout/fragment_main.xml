@@ -44,7 +44,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        yang:icon_bg="@color/theme_sudoku"
+                        yang:icon_bg="@color/theme_base"
                         yang:icon_center="@drawable/ic_action_play"
                         yang:text="@string/easy"></com.gmail.jiangyang5157.sudoku.component.view.IconButton>
 
@@ -53,7 +53,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        yang:icon_bg="@color/theme_sudoku"
+                        yang:icon_bg="@color/theme_base"
                         yang:icon_center="@drawable/ic_action_play"
                         yang:text="@string/normal"></com.gmail.jiangyang5157.sudoku.component.view.IconButton>
                 </LinearLayout>
@@ -73,7 +73,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        yang:icon_bg="@color/theme_sudoku"
+                        yang:icon_bg="@color/theme_base"
                         yang:icon_center="@drawable/ic_action_play"
                         yang:text="@string/nightmare"></com.gmail.jiangyang5157.sudoku.component.view.IconButton>
 
@@ -82,7 +82,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        yang:icon_bg="@color/theme_sudoku"
+                        yang:icon_bg="@color/theme_base"
                         yang:icon_center="@drawable/ic_action_play"
                         yang:text="@string/hell"></com.gmail.jiangyang5157.sudoku.component.view.IconButton>
                 </LinearLayout>

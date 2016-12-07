@@ -12,22 +12,6 @@ public class NodeCache implements Serializable {
     private boolean editable = false;
     private ArrayList<Integer> cellsValue = null;
 
-    public NodeCache() {
-    }
-
-    public NodeCache(int puzzleValue, int value, boolean editable) {
-        setPuzzleValue(puzzleValue);
-        setValue(value);
-        setEditable(editable);
-    }
-
-    public NodeCache(int puzzleValue, int value, boolean editable, ArrayList<Integer> cellsValue) {
-        setPuzzleValue(puzzleValue);
-        setValue(value);
-        setEditable(editable);
-        setCellsValue(cellsValue);
-    }
-
     public int getPuzzleValue() {
         return puzzleValue;
     }

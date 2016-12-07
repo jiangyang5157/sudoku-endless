@@ -4,14 +4,14 @@
 
     <PreferenceCategory android:title="@string/basics">
         <Preference
-            android:icon="@drawable/ic_action_edit"
-            android:key="@string/color_palettes"
-            android:title="@string/color_palettes"></Preference>
+            android:icon="@drawable/ic_palette_black_24px"
+            android:key="@string/color_palette"
+            android:title="@string/color_palette"></Preference>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/advanced">
         <Preference
-            android:icon="@drawable/ic_action_about"
+            android:icon="@drawable/ic_info_black_24px"
             android:key="@string/about"
             android:title="@string/about"></Preference>
     </PreferenceCategory>

@@ -2,7 +2,7 @@
     xmlns:yang="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_new_puzzle"
-        android:icon="@drawable/ic_action_new"
+        android:icon="@drawable/ic_add_white_24px"
         android:orderInCategory="50"
         android:title="@string/new_puzzle"
         yang:showAsAction="always" />

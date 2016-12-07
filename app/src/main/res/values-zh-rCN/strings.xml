@@ -35,7 +35,7 @@
 
     <string name="settings">设置</string>
     <string name="basics">基本</string>
-    <string name="color_palettes">色彩调色板</string>
+    <string name="color_palette">色彩调色板</string>
     <string name="advanced">高级</string>
     <string name="about">关于</string>
     <string name="app_version">应用版本</string>

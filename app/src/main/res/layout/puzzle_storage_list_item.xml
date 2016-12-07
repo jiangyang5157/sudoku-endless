@@ -50,7 +50,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_action_time" />
+                        android:src="@drawable/ic_schedule_black_24px" />
 
                     <TextView
                         android:id="@+id/tv_timer"
@@ -59,6 +59,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/best_time_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
@@ -67,10 +68,10 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_action_go_to_today" />
+                        android:src="@drawable/ic_thumb_up_black_24px" />
 
                     <TextView
-                        android:id="@+id/tv_date"
+                        android:id="@+id/tv_best_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
@@ -83,20 +84,18 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/best_time_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_action_good" />
+                        android:src="@drawable/ic_event_black_24px" />
 
                     <TextView
-                        android:id="@+id/tv_best_time"
+                        android:id="@+id/tv_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
@@ -104,14 +103,13 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_action_sort_by_size_asc" />
+                        android:src="@drawable/ic_label_outline_black_24px" />
 
                     <TextView
                         android:id="@+id/tv_difficulty"

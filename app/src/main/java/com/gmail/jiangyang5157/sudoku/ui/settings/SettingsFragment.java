@@ -15,11 +15,11 @@ public class SettingsFragment extends BasePreferenceFragment {
     public void setupPreferencesScreen() {
         addPreferencesFromResource(R.xml.preferences_settings);
 
-        Preference pColorPalettes = findPreference(AppUtils.getString(getActivity(), R.string.color_palettes));
-        pColorPalettes.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+        Preference pColorPalette = findPreference(AppUtils.getString(getActivity(), R.string.color_palette));
+        pColorPalette.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                startActivity(new Intent(getActivity(), ColorPalettesActivity.class));
+                startActivity(new Intent(getActivity(), ColorPaletteActivity.class));
                 return true;
             }
         });

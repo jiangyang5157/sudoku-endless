@@ -157,7 +157,7 @@ public class PuzzleStorageListItemView extends FrameLayout {
 
     private void updatePuzzleDrawable() {
         if (isSelected) {
-            ivPuzzleDrawable.setImageDrawable(AppUtils.getDrawable(getContext(), R.drawable.ic_action_accept, null));
+            ivPuzzleDrawable.setImageDrawable(AppUtils.getDrawable(getContext(), R.drawable.ic_check_black_24px, null));
         } else {
             ivPuzzleDrawable.setImageDrawable(mPuzzleDrawable);
         }

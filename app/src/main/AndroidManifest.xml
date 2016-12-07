@@ -29,8 +29,8 @@
             android:theme="@style/Theme.Settings" />
 
         <activity
-            android:name=".ui.settings.ColorPalettesActivity"
-            android:label="@string/color_palettes"
+            android:name=".ui.settings.ColorPaletteActivity"
+            android:label="@string/color_palette"
             android:parentActivityName=".ui.settings.SettingsActivity"
             android:theme="@style/Theme.Settings" />
 

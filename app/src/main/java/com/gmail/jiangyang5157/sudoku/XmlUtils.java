@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Iterator;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -46,14 +45,14 @@ public class XmlUtils {
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         }
+        assert db != null;
         Document doc = db.newDocument();
         doc.setXmlStandalone(true);
 
         String rootName = AppUtils.getString(context, R.string.app_name).replaceAll(" ", "");
         Element root = doc.createElement(rootName);
-        Iterator<Long> it = rowIds.iterator();
-        while (it.hasNext()) {
-            String rowId = String.valueOf(it.next());
+        for (Long rowId1 : rowIds) {
+            String rowId = String.valueOf(rowId1);
             Cursor cursor = AppDatabaseApi.getInstance(context).queryPuzzle(PuzzleTable.KEY_ROWID, rowId, PuzzleTable.KEY_DATE + " " + AppDatabaseApi.ORDER_BY_DESC);
 
             String srcCache = cursor.getString(cursor.getColumnIndexOrThrow(PuzzleTable.KEY_CACHE));
@@ -77,9 +76,7 @@ public class XmlUtils {
                     }
                 }
                 EncodeUtils.encodeObject(puzzleCache);
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
+            } catch (ClassNotFoundException | IOException e) {
                 e.printStackTrace();
             }
 
@@ -100,6 +97,7 @@ public class XmlUtils {
             e.printStackTrace();
         }
         DOMSource source = new DOMSource(doc);
+        assert transformer != null;
         transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         PrintWriter pw = null;
@@ -118,6 +116,7 @@ public class XmlUtils {
         }
         Log.d(TAG, "Write: " + path);
         try {
+            assert fos != null;
             fos.flush();
             fos.close();
             pw.flush();
@@ -141,14 +140,14 @@ public class XmlUtils {
         Log.d(TAG, "Read: " + file.getAbsolutePath());
         Document doc = null;
         try {
+            assert db != null;
             doc = db.parse(file);
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (SAXException | IOException e) {
             e.printStackTrace();
         }
 
         String rootName = AppUtils.getString(context, R.string.app_name).replaceAll(" ", "");
+        assert doc != null;
         NodeList rootNodes = doc.getElementsByTagName(rootName);
         int rootNodestLength = rootNodes.getLength();
         if (rootNodestLength > 0) {

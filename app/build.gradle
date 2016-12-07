@@ -51,7 +51,7 @@ dependencies {
 
     compile project(':base')
     compile project(':math')
-    compile project(':algorithm')
     compile project(':android-base')
     compile project(':android-sql')
+    compile project(':dlx')
 }

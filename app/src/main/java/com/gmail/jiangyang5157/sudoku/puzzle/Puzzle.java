@@ -4,17 +4,17 @@ import android.util.SparseIntArray;
 
 public interface Puzzle {
 
-    public void generatePuzzle(int[][] puzzleValues, int[][] values);
+    void generatePuzzle(int[][] puzzleValues, int[][] values);
 
-    public void generatePuzzle(NodeCache[][] nodesCache);
+    void generatePuzzle(NodeCache[][] nodesCache);
 
-    public void clearPuzzle();
+    void clearPuzzle();
 
-    public void setInappropriate(SparseIntArray inappropriate);
+    void setInappropriate(SparseIntArray inappropriate);
 
-    public int[][] getValues();
+    int[][] getValues();
 
-    public int[][] getPuzzleValues();
+    int[][] getPuzzleValues();
 
-    public NodeCache[][] getNodesCache();
+    NodeCache[][] getNodesCache();
 }

@@ -2,7 +2,6 @@ package com.gmail.jiangyang5157.sudoku.ui.puzzle;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -16,7 +15,6 @@ import com.gmail.jiangyang5157.sudoku.puzzle.render.RenderThread;
 import com.gmail.jiangyang5157.sudoku.puzzle.render.node.Node;
 import com.gmail.jiangyang5157.tookit.android.base.DeviceUtils;
 import com.gmail.jiangyang5157.tookit.android.base.EncodeUtils;
-import com.gmail.jiangyang5157.tookit.base.data.ArrayUtils;
 
 import java.io.IOException;
 
@@ -193,13 +191,73 @@ public class PuzzleView extends SurfaceView implements SurfaceHolder.Callback, K
     public boolean validate(boolean highlight) {
         boolean ret = false;
         int[][] board = getValues();
-        SparseIntArray inappropriate = PuzzleSolver.getInappropriate(board);
+        SparseIntArray inappropriate = getInappropriate(board);
         if (inappropriate.size() == 0) {
             ret = true;
         } else if (highlight) {
             setInappropriate(inappropriate);
         }
 
+        return ret;
+    }
+
+    public SparseIntArray getInappropriate(int[][] board) {
+        SparseIntArray ret = new SparseIntArray();
+        SparseIntArray[] rows = new SparseIntArray[Config.SUDOKU_SIZE];
+        SparseIntArray[] columns = new SparseIntArray[Config.SUDOKU_SIZE];
+        SparseIntArray[] blocks = new SparseIntArray[Config.SUDOKU_BLOCKS_COUNT];
+        if (board != null) {
+            for (int i = 0; i < Config.SUDOKU_SIZE; i++) {
+                if (rows[i] == null) {
+                    rows[i] = new SparseIntArray();
+                }
+                for (int j = 0; j < Config.SUDOKU_SIZE; j++) {
+                    if (board[i][j] != 0) {
+                        //need to be checked
+
+                        int index = PuzzleGeneratorTask.getIndex(i, j);
+
+                        //index of the same value(board[i][j]) in current row
+                        int prevIndexFromRows = rows[i].get(board[i][j], -1);
+
+                        if (prevIndexFromRows >= 0) {
+                            ret.put(prevIndexFromRows, rows[i].keyAt(rows[i].indexOfValue(prevIndexFromRows)));
+                            ret.put(index, board[i][j]);
+                        } else {
+                            rows[i].put(board[i][j], index);
+                        }
+
+                        if (columns[j] == null) {
+                            columns[j] = new SparseIntArray();
+                        }
+
+                        //index of the same value(board[i][j]) in current column
+                        int prevIndexFromColumns = columns[j].get(board[i][j], -1);
+
+                        if (prevIndexFromColumns >= 0) {
+                            ret.put(prevIndexFromColumns, columns[j].keyAt(columns[j].indexOfValue(prevIndexFromColumns)));
+                            ret.put(index, board[i][j]);
+                        } else {
+                            columns[j].put(board[i][j], index);
+                        }
+
+                        int blockIndex = PuzzleGeneratorTask.getBlock(i, j);
+                        if (blocks[blockIndex] == null) {
+                            blocks[blockIndex] = new SparseIntArray();
+                        }
+
+                        //index of the same value(board[i][j]) in current block
+                        int prevIndexFromBlocks = blocks[blockIndex].get(board[i][j], -1);
+                        if (prevIndexFromBlocks >= 0) {
+                            ret.put(prevIndexFromBlocks, blocks[blockIndex].keyAt(blocks[blockIndex].indexOfValue(prevIndexFromBlocks)));
+                            ret.put(index, board[i][j]);
+                        } else {
+                            blocks[blockIndex].put(board[i][j], index);
+                        }
+                    }
+                }
+            }
+        }
         return ret;
     }
 

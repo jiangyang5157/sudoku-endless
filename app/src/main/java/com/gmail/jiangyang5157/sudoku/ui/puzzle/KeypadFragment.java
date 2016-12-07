@@ -20,9 +20,9 @@ public class KeypadFragment extends BaseFragment {
 
     public interface Listener {
         
-        public boolean inputNumber(int number);
+        boolean inputNumber(int number);
 
-        public boolean onErase();
+        boolean onErase();
     }
 
     @Override

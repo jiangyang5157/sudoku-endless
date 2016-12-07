@@ -11,6 +11,7 @@ import com.gmail.jiangyang5157.sudoku.SudokuAppUtils;
 import com.gmail.jiangyang5157.sudoku.puzzle.*;
 import com.gmail.jiangyang5157.sudoku.puzzle.render.cell.Cell;
 import com.gmail.jiangyang5157.sudoku.puzzle.render.node.*;
+import com.gmail.jiangyang5157.sudoku.ui.puzzle.PuzzleGeneratorTask;
 
 import java.util.ArrayList;
 
@@ -103,13 +104,12 @@ public class PuzzleImpl extends EditableComponent implements Puzzle {
 
     @Override
     public void setInappropriate(SparseIntArray inappropriate) {
-        for (int i = 0; i < Config.SUDOKU_SIZE; i++) {
-            for (int j = 0; j < Config.SUDOKU_SIZE; j++) {
-                int index = PuzzleSolver.getIndex(i, j);
-                if (inappropriate.get(index, -1) >= 0) {
-                    nodes[i][j].getStateControler().setState(RelatedNode.ID);
+        for (int r = 0, i = 0; r < Config.SUDOKU_SIZE; r++) {
+            for (int c = 0; c < Config.SUDOKU_SIZE; c++, i++) {
+                if (inappropriate.get(i, -1) >= 0) {
+                    nodes[r][c].getStateControler().setState(RelatedNode.ID);
                 } else {
-                    nodes[i][j].getStateControler().setState(NormalNode.ID);
+                    nodes[r][c].getStateControler().setState(NormalNode.ID);
                 }
             }
         }
@@ -262,7 +262,7 @@ public class PuzzleImpl extends EditableComponent implements Puzzle {
             for (int j = 0; j < Config.SUDOKU_SIZE; j++) {
                 boolean sameI = (i == mNode.i);
                 boolean sameJ = (j == mNode.j);
-                boolean sameBlock = (PuzzleSolver.getBlock(i, j) == PuzzleSolver.getBlock(mNode.i, mNode.j));
+                boolean sameBlock = (PuzzleGeneratorTask.getBlock(i, j) == PuzzleGeneratorTask.getBlock(mNode.i, mNode.j));
                 boolean sameValue = (mNode.getValue() == nodes[i][j].getValue());
 
                 NodeStateControler stateControler = nodes[i][j].getStateControler();

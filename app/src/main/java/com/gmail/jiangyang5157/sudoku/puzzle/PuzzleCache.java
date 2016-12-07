@@ -9,9 +9,6 @@ public class PuzzleCache implements Serializable {
     private NodeCache[][] nodesCache = null;
     private Level level = null;
 
-    public PuzzleCache() {
-    }
-
     public PuzzleCache(NodeCache[][] nodesCache, Level level) {
         setNodesCache(nodesCache);
         setLevel(level);

@@ -133,7 +133,6 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
             case R.id.menu_discard:
                 new AlertDialog.Builder(getActivity())
                         .setCancelable(true)
-                        .setTitle(R.string.discard)
                         .setMessage(R.string.msg_discard)
                         .setPositiveButton(R.string.ok,
                                 new DialogInterface.OnClickListener() {

@@ -29,12 +29,11 @@ public class PuzzleStorageCursorAdapter extends CursorAdapter implements PuzzleS
 
     public PuzzleStorageCursorAdapter(Context context, Cursor c, Listener listener) {
         // I don't want to pass it FLAG_REGISTER_CONTENT_OBSERVER, since I'm using a CursorLoader with my CursorAdapter.
-        // I definitely don't want to pass it FLAG_AUTO_REQUERY, since that flag is deprecated.
-        // so I pass 0 flag
+        // I definitely don't want to pass it FLAG_AUTO_REQUERY, since that flag is deprecated. So I pass 0 flag
         super(context, c, 0);
         this.mContext = context;
         this.mListener = listener;
-        selectedRowIDs = new HashSet<Long>();
+        selectedRowIDs = new HashSet<>();
     }
 
     public HashSet<Long> getSelectedRowIDs() {
@@ -141,13 +140,9 @@ public class PuzzleStorageCursorAdapter extends CursorAdapter implements PuzzleS
 
         try {
             PuzzleCache cache = (PuzzleCache) EncodeUtils.decodeObject(cursor.getString(cursor.getColumnIndexOrThrow(PuzzleTable.KEY_CACHE)));
-            if (cache == null) {
-                // wtf cache is null - happens when launch app from IDE when the app still runing in device
-            } else {
-                holder.self.setDifficulty(cache.getLevel().getDifficulty());
-                int[] puzzleProgress = getPuzzleProgress(cache.getNodesCache());
-                holder.self.setProgress(puzzleProgress[0], puzzleProgress[1]);
-            }
+            holder.self.setDifficulty(cache.getLevel().getDifficulty());
+            int[] puzzleProgress = getPuzzleProgress(cache.getNodesCache());
+            holder.self.setProgress(puzzleProgress[0], puzzleProgress[1]);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

@@ -193,7 +193,6 @@ public class ColorPaletteActivity extends BaseActivity implements ColorPaletteEx
             case R.id.menu_reset:
                 new AlertDialog.Builder(ColorPaletteActivity.this)
                         .setCancelable(true)
-                        .setTitle(R.string.reset)
                         .setMessage(R.string.msg_reset)
                         .setPositiveButton(R.string.ok,
                                 new DialogInterface.OnClickListener() {

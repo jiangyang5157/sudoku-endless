@@ -45,14 +45,14 @@ public class PuzzleFragment extends BasePuzzleFragment implements KeypadFragment
         if (rowId > 0) {
             mNodesCache = (NodeCache[][]) savedInstanceState.get(BasePuzzleFragment.KEY_NODES_CACHE);
             if (mNodesCache != null) {
-                // configuration change - puzzle restore
+                // restore puzzle
                 restorePuzzle(savedInstanceState);
             } else {
                 // puzzle from database
                 loadPuzzle(rowId);
             }
         } else {
-            //gonna generate new puzzle
+            // generate new puzzle
             newPuzzle((Level) savedInstanceState.get(BasePuzzleFragment.KEY_LEVEL_CACHE));
         }
     }
@@ -71,11 +71,10 @@ public class PuzzleFragment extends BasePuzzleFragment implements KeypadFragment
         PuzzleCache puzzleCache = null;
         try {
             puzzleCache = (PuzzleCache) EncodeUtils.decodeObject(cache);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+        assert puzzleCache != null;
         mNodesCache = puzzleCache.getNodesCache();
         if (mTimer != null) {
             mTimer.setTime(Integer.parseInt(timer), true);

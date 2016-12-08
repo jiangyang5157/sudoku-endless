@@ -85,7 +85,6 @@ public class PuzzleView extends SurfaceView implements SurfaceHolder.Callback, K
     public void setInappropriate(SparseIntArray inappropriate) {
         puzzleImpl.setInappropriate(inappropriate);
         puzzleImpl.reset();
-
         refresh();
     }
 
@@ -101,7 +100,6 @@ public class PuzzleView extends SurfaceView implements SurfaceHolder.Callback, K
 
     private void setCanvasSize(int width, int height) {
         puzzleImpl.set(0, 0, width, height);
-
         refresh();
     }
 
@@ -197,7 +195,6 @@ public class PuzzleView extends SurfaceView implements SurfaceHolder.Callback, K
         } else if (highlight) {
             setInappropriate(inappropriate);
         }
-
         return ret;
     }
 

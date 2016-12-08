@@ -14,11 +14,11 @@ public abstract class BasePuzzleFragment extends BaseFragment implements PuzzleV
 
     protected PuzzleView puzzleView = null;
 
-    public static final String KEY_ROWID = "rowId";
-    public static final String KEY_NODES_CACHE = "nodes_cache";
-    public static final String KEY_LEVEL_CACHE = "level_cache";
-    public static final String KEY_TIMER = "timer";
-    public static final String KEY_BEST_TIME = "best_time";
+    public static final String KEY_ROWID = "KEY_ROWID";
+    public static final String KEY_NODES_CACHE = "KEY_NODES_CACHE";
+    public static final String KEY_LEVEL_CACHE = "KEY_LEVEL_CACHE";
+    public static final String KEY_TIMER = "KEY_TIMER";
+    public static final String KEY_BEST_TIME = "KEY_BEST_TIME";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

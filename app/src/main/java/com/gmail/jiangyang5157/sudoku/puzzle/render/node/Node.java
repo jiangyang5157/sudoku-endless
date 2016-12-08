@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class Node extends EditableComponent {
 
-    private NodeStateControler stateControler = null;
+    private NodeStateController stateControler = null;
 
     public int i = 0;
     public int j = 0;
@@ -27,7 +27,6 @@ public class Node extends EditableComponent {
     private boolean cellMode = false;
 
     public static final int CELLS_COUNT = 4;
-
     private ArrayList<Cell> cells = null;
     private SparseIntArray cellsIndex = null;
 
@@ -37,10 +36,10 @@ public class Node extends EditableComponent {
         this.i = i;
         this.j = j;
 
-        stateControler = new NodeStateControler();
+        stateControler = new NodeStateController();
         stateControler.setState(NormalNode.ID);
 
-        cells = new ArrayList<Cell>(CELLS_COUNT);
+        cells = new ArrayList<>(CELLS_COUNT);
         cellsIndex = new SparseIntArray(CELLS_COUNT);
 
         for (int k = 0; k < CELLS_COUNT; k++) {
@@ -95,12 +94,10 @@ public class Node extends EditableComponent {
         super.set(left, top, right, bottom);
 
         int cellWidth = (right - left) / 3;
-
         int size = cells.size();
         for (int i = 0; i < size; i++) {
-            Cell cell = cells.get(i);
             Rect r = getCellRect(i, cellWidth);
-            cell.set(r.left, r.top, r.right, r.bottom);
+            cells.get(i).set(r.left, r.top, r.right, r.bottom);
         }
     }
 
@@ -138,7 +135,6 @@ public class Node extends EditableComponent {
             default:
                 break;
         }
-
         return ret;
     }
 
@@ -152,10 +148,8 @@ public class Node extends EditableComponent {
 
     public void setCellMode(boolean cellMode) {
         this.cellMode = cellMode;
-
         for (int i = 0; i < CELLS_COUNT; i++) {
-            Cell cell = cells.get(i);
-            cell.getStateControler().setState(cellMode ? SelectedCell.ID : NormalCell.ID);
+            cells.get(i).getStateControler().setState(cellMode ? SelectedCell.ID : NormalCell.ID);
         }
     }
 
@@ -164,7 +158,6 @@ public class Node extends EditableComponent {
         for (int i = 0; i < CELLS_COUNT; i++) {
             Cell cell = cells.get(i);
             cell.onErase();
-
             if (clearState) {
                 cell.getStateControler().setState(NormalCell.ID);
             }
@@ -174,7 +167,6 @@ public class Node extends EditableComponent {
     @Override
     public boolean inputNumber(int number) {
         boolean ret = false;
-
         if (isEditable()) {
             if (cellMode) {
                 if (number == 0) {
@@ -185,10 +177,8 @@ public class Node extends EditableComponent {
             } else {
                 setValue(number);
             }
-
             ret = true;
         }
-
         return ret;
     }
 
@@ -200,7 +190,7 @@ public class Node extends EditableComponent {
         this.puzzleValue = puzzleValue;
     }
 
-    public NodeStateControler getStateControler() {
+    public NodeStateController getStateControler() {
         return stateControler;
     }
 

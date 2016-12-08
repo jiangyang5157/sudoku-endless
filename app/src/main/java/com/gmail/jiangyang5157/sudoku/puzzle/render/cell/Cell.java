@@ -6,12 +6,13 @@ import android.graphics.Paint;
 import com.gmail.jiangyang5157.sudoku.puzzle.render.EditableComponent;
 
 public class Cell extends EditableComponent {
-    private CellStateControler stateControler = null;
+
+    private CellStateController stateControler = null;
 
     public Cell() {
         super();
 
-        stateControler = new CellStateControler();
+        stateControler = new CellStateController();
         stateControler.setState(NormalCell.ID);
     }
 
@@ -25,7 +26,7 @@ public class Cell extends EditableComponent {
         stateControler.getState().render(this, canvas, paint);
     }
 
-    public CellStateControler getStateControler() {
+    public CellStateController getStateControler() {
         return stateControler;
     }
 }

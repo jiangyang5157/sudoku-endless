@@ -21,8 +21,7 @@ public class NormalCell extends State {
     }
 
     @Override
-    public void render(Component component, Canvas canvas,
-                       Paint paint) {
+    public void render(Component component, Canvas canvas, Paint paint) {
         Cell cell = (Cell) component;
         cell.renderValue(canvas, paint, SudokuAppUtils.NORMAL_CELL_TEXT_COLOR, (component.width()) / 5 * 4);
     }

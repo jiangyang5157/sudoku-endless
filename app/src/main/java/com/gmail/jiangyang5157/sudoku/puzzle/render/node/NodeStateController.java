@@ -1,11 +1,11 @@
 package com.gmail.jiangyang5157.sudoku.puzzle.render.node;
 
 import com.gmail.jiangyang5157.sudoku.puzzle.render.State;
-import com.gmail.jiangyang5157.sudoku.puzzle.render.StateControler;
+import com.gmail.jiangyang5157.sudoku.puzzle.render.StateController;
 
 import java.util.HashMap;
 
-public class NodeStateControler extends StateControler {
+public class NodeStateController extends StateController {
 
     @Override
     public HashMap<Integer, State> getStates() {

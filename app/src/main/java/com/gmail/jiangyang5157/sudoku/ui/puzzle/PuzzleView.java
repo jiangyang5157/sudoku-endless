@@ -24,12 +24,12 @@ public class PuzzleView extends SurfaceView implements SurfaceHolder.Callback, K
     private Listener mListener = null;
 
     public interface Listener {
-        public void onCompleted();
+        void onCompleted();
     }
 
     private SurfaceHolder surfaceHolder = null;
 
-    private static final int FPS = 50;
+    private static final int FPS = 60;
     private RenderThread renderThread = null;
 
     private PuzzleImpl puzzleImpl = null;

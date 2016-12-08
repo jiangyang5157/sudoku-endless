@@ -30,8 +30,7 @@ public class SameValueNode extends State {
     @Override
     public void render(Component component, Canvas canvas, Paint paint) {
         component.renderBackground(canvas, paint, getBackgroundColor());
-        component.renderBorder(canvas, paint, getBorderWidth(),
-                getBorderColor());
+        component.renderBorder(canvas, paint, getBorderWidth(), getBorderColor());
 
         Node node = (Node) component;
         node.renderValue(canvas, paint, SudokuAppUtils.SAME_VALUE_NODE_TEXT_COLOR, component.width() * SudokuAppUtils.SAME_VALUE_NODE_TEXT_SCALE);

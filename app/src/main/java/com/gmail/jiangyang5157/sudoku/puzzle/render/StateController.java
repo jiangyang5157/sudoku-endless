@@ -2,7 +2,7 @@ package com.gmail.jiangyang5157.sudoku.puzzle.render;
 
 import java.util.HashMap;
 
-public abstract class StateControler {
+public abstract class StateController {
 
     private HashMap<Integer, State> states = null;
 
@@ -10,7 +10,7 @@ public abstract class StateControler {
 
     public abstract HashMap<Integer, State> getStates();
 
-    public StateControler() {
+    public StateController() {
         states = getStates();
     }
 

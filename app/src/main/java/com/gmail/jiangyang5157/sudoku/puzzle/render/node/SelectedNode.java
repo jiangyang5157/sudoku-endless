@@ -32,8 +32,7 @@ public class SelectedNode extends State {
     @Override
     public void render(Component component, Canvas canvas, Paint paint) {
         component.renderBackground(canvas, paint, getBackgroundColor());
-        component.renderBorder(canvas, paint, getBorderWidth(),
-                getBorderColor());
+        component.renderBorder(canvas, paint, getBorderWidth(), getBorderColor());
 
         Node node = (Node) component;
         node.renderValue(canvas, paint, SudokuAppUtils.SELECTED_NODE_TEXT_COLOR, component.width() * SudokuAppUtils.SELECTED_NODE_TEXT_SCALE);

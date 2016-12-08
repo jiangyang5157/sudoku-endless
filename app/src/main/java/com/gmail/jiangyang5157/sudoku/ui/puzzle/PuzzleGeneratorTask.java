@@ -87,7 +87,7 @@ public class PuzzleGeneratorTask extends AsyncTask<Level, Integer, ArrayList<int
     }
 
     public int[][] solveUniqueSolutionPuzzle(int[][] puzzle) {
-        StringBuffer raw = new StringBuffer();
+        StringBuilder raw = new StringBuilder();
         for (int r = 0, i = 0; r < Config.SUDOKU_SIZE; r++) {
             for (int c = 0; c < Config.SUDOKU_SIZE; c++, i++) {
                 raw.append(String.valueOf(puzzle[r][c]));

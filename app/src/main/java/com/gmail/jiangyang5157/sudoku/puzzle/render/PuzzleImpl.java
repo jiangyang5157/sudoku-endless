@@ -46,7 +46,7 @@ public class PuzzleImpl extends EditableComponent implements Puzzle {
                 nodes[i][j].setPuzzleValue(puzzleValues[i][j]);
                 nodes[i][j].setValue(values[i][j]);
 
-                nodes[i][j].setEditable(values[i][j] == 0 ? true : false);
+                nodes[i][j].setEditable(values[i][j] == 0);
                 nodes[i][j].getStateControler().setState(NormalNode.ID);
 
                 nodes[i][j].clearCells(true);
@@ -265,43 +265,43 @@ public class PuzzleImpl extends EditableComponent implements Puzzle {
                 boolean sameBlock = (PuzzleGeneratorTask.getBlock(i, j) == PuzzleGeneratorTask.getBlock(mNode.i, mNode.j));
                 boolean sameValue = (mNode.getValue() == nodes[i][j].getValue());
 
-                NodeStateControler stateControler = nodes[i][j].getStateControler();
+                NodeStateController stateController = nodes[i][j].getStateControler();
                 if (sameI && sameJ) {
-                    stateControler.setState(SelectedNode.ID);
+                    stateController.setState(SelectedNode.ID);
                 } else {
-                    int stateId = stateControler.getState().getId();
+                    int stateId = stateController.getState().getId();
                     if (mNode.getValue() == 0) {
                         if (stateId == SameValueNode.ID || (stateId == SelectedNode.ID && nodes[i][j].getValue() != 0)) {
-                            stateControler.setState(SameValueNode.ID);
+                            stateController.setState(SameValueNode.ID);
                             if (sameI || sameJ || sameBlock) {
-                                stateControler.getState().setBackgroundColor(
+                                stateController.getState().setBackgroundColor(
                                         nodes[i][j].isEditable() ? SudokuAppUtils.RELATED_NODE_BACKGROUND_COLOR_EDITABLE : SudokuAppUtils.RELATED_NODE_BACKGROUND_COLOR_NONEDITABLE);
                             } else {
-                                stateControler.getState().setBackgroundColor(
+                                stateController.getState().setBackgroundColor(
                                         nodes[i][j].isEditable() ? SudokuAppUtils.NORMAL_NODE_BACKGROUND_COLOR_EDITABLE : SudokuAppUtils.NORMAL_NODE_BACKGROUND_COLOR_NONEDITABLE);
                             }
                         } else {
                             if (sameI || sameJ || sameBlock) {
-                                stateControler.setState(RelatedNode.ID);
+                                stateController.setState(RelatedNode.ID);
                             } else {
-                                stateControler.setState(NormalNode.ID);
+                                stateController.setState(NormalNode.ID);
                             }
                         }
                     } else {
                         if (sameValue) {
-                            stateControler.setState(SameValueNode.ID);
+                            stateController.setState(SameValueNode.ID);
                             if (sameI || sameJ || sameBlock) {
-                                stateControler.getState().setBackgroundColor(
+                                stateController.getState().setBackgroundColor(
                                         nodes[i][j].isEditable() ? SudokuAppUtils.RELATED_NODE_BACKGROUND_COLOR_EDITABLE : SudokuAppUtils.RELATED_NODE_BACKGROUND_COLOR_NONEDITABLE);
                             } else {
-                                stateControler.getState().setBackgroundColor(
+                                stateController.getState().setBackgroundColor(
                                         nodes[i][j].isEditable() ? SudokuAppUtils.NORMAL_NODE_BACKGROUND_COLOR_EDITABLE : SudokuAppUtils.NORMAL_NODE_BACKGROUND_COLOR_NONEDITABLE);
                             }
                         } else {
                             if (sameI || sameJ || sameBlock) {
-                                stateControler.setState(RelatedNode.ID);
+                                stateController.setState(RelatedNode.ID);
                             } else {
-                                stateControler.setState(NormalNode.ID);
+                                stateController.setState(NormalNode.ID);
                             }
                         }
                     }
@@ -329,23 +329,16 @@ public class PuzzleImpl extends EditableComponent implements Puzzle {
     public void set(int left, int top, int right, int bottom) {
         super.set(left, top, right, bottom);
 
-        int nodeWidth = (right
-                - left
+        int nodeWidth = (right - left
                 - ((1 + Config.SUDOKU_BLOCK_SIZE) * SudokuAppUtils.PUZZLE_BLOCKS_SEPARATOR_WIDTH)
-                - ((Config.SUDOKU_BLOCK_SIZE - 1) * Config.SUDOKU_BLOCK_SIZE)
-                * SudokuAppUtils.PUZZLE_NODES_SEPARATOR_WIDTH)
-                / Config.SUDOKU_SIZE;
+                - ((Config.SUDOKU_BLOCK_SIZE - 1) * Config.SUDOKU_BLOCK_SIZE) * SudokuAppUtils.PUZZLE_NODES_SEPARATOR_WIDTH) / Config.SUDOKU_SIZE;
 
         for (int i = 0; i < Config.SUDOKU_SIZE; i++) {
             for (int j = 0; j < Config.SUDOKU_SIZE; j++) {
-                int offsetX = (1 + j / Config.SUDOKU_BLOCK_SIZE)
-                        * SudokuAppUtils.PUZZLE_BLOCKS_SEPARATOR_WIDTH
-                        + (j - j / Config.SUDOKU_BLOCK_SIZE)
-                        * SudokuAppUtils.PUZZLE_NODES_SEPARATOR_WIDTH;
-                int offsetY = (1 + i / Config.SUDOKU_BLOCK_SIZE)
-                        * SudokuAppUtils.PUZZLE_BLOCKS_SEPARATOR_WIDTH
-                        + (i - i / Config.SUDOKU_BLOCK_SIZE)
-                        * SudokuAppUtils.PUZZLE_NODES_SEPARATOR_WIDTH;
+                int offsetX = (1 + j / Config.SUDOKU_BLOCK_SIZE) * SudokuAppUtils.PUZZLE_BLOCKS_SEPARATOR_WIDTH
+                        + (j - j / Config.SUDOKU_BLOCK_SIZE) * SudokuAppUtils.PUZZLE_NODES_SEPARATOR_WIDTH;
+                int offsetY = (1 + i / Config.SUDOKU_BLOCK_SIZE) * SudokuAppUtils.PUZZLE_BLOCKS_SEPARATOR_WIDTH
+                        + (i - i / Config.SUDOKU_BLOCK_SIZE) * SudokuAppUtils.PUZZLE_NODES_SEPARATOR_WIDTH;
 
                 int x = left + j * nodeWidth + offsetX;
                 int y = top + i * nodeWidth + offsetY;

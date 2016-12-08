@@ -9,7 +9,7 @@ public class AppDatabaseOpenHelper extends BaseAppDatabaseOpenHelper {
     /**
      * File will locate in "/data/data/PACKAGE_PATH/DATABASE_NAME" as default
      */
-    public static final String DATABASE_NAME = "SudokuEndless.db";
+    public static final String DATABASE_NAME = "sudoku_endless.db";
 
     public static final int DATABASE_VERSION = 9;
 

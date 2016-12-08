@@ -3,6 +3,7 @@ package com.gmail.jiangyang5157.sudoku.ui.settings;
 import android.graphics.Color;
 
 public class ColorPreference {
+
     String title;
     String key;
     int r;

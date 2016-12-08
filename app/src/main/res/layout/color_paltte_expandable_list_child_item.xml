@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/textured_slash"
+    android:background="@drawable/bg_textured_slash"
     android:descendantFocusability="blocksDescendants"
     android:gravity="center_vertical"
     android:orientation="horizontal"
@@ -20,13 +20,13 @@
         <FrameLayout
             android:layout_width="@dimen/color_palttes_drawable_width"
             android:layout_height="@dimen/color_palttes_drawable_height"
-            android:background="@drawable/bg_card">
+            android:background="@drawable/card">
 
             <ImageView
                 android:id="@+id/iv_color_drawable"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/textured_alpha_pattern"
+                android:background="@drawable/bg_textured_alpha"
                 android:scaleType="centerInside" />
         </FrameLayout>
 
@@ -40,7 +40,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/textured_slash"
+        android:background="@drawable/bg_textured_slash"
         android:descendantFocusability="blocksDescendants"
         android:gravity="center_horizontal"
         android:orientation="vertical"

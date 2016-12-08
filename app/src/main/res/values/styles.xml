@@ -33,7 +33,7 @@
         <item name="colorPrimary">@color/theme_sudoku</item>
         <item name="colorPrimaryDark">@color/theme_sudoku_dark</item>
 
-        <item name="android:windowBackground">@drawable/textured_slash</item>
+        <item name="android:windowBackground">@drawable/bg_textured_slash</item>
     </style>
 
     <style name="Theme.DialogFragment.Base" parent="Base.Theme.AppCompat.Light.Dialog">

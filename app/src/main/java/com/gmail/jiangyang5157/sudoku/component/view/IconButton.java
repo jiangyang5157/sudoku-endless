@@ -28,7 +28,6 @@ public class IconButton extends LinearLayout {
 
     public IconButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         setClickable(true);
 
         LayoutInflater.from(getContext()).inflate(R.layout.icon_button, this, true);
@@ -47,7 +46,6 @@ public class IconButton extends LinearLayout {
             setIconCenter(iconCenterResId);
         }
         typedArray.recycle();
-
     }
 
     @Override

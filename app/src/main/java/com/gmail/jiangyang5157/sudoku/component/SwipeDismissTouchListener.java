@@ -16,7 +16,6 @@ package com.gmail.jiangyang5157.sudoku.component;
  * limitations under the License.
  */
 
-
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;

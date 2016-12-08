@@ -19,7 +19,7 @@ public class DrawShadowFrameLayout extends BaseFrameLayout {
     private boolean mShadowVisible;
     private int mWidth, mHeight;
     private ObjectAnimator mAnimator;
-    private float mAlpha = 1f;
+    private float mAlpha = 1.0f;
 
     public DrawShadowFrameLayout(Context context) {
         this(context, null, 0);

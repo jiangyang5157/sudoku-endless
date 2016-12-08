@@ -5,5 +5,5 @@ package com.gmail.jiangyang5157.sudoku.component;
  * Date: 2014/12/22
  */
 public interface SpecialKeyListener {
-    public boolean onBackPressed();
+    boolean onBackPressed();
 }

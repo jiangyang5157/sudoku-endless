@@ -23,9 +23,7 @@ public abstract class BaseDialogFragment extends DialogFragment {
         try {
             t = cls.newInstance();
             t.setArguments(args);
-        } catch (java.lang.InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (java.lang.InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
         return t;

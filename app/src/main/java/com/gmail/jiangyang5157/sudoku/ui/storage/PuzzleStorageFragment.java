@@ -158,9 +158,7 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
         if (getActivity() == null) {
             return;
         }
-
         ((BaseActivity) getActivity()).hideProcessingDialog();
-
         sendEmail(getActivity(), result);
     }
 

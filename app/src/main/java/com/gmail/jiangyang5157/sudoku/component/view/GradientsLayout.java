@@ -12,7 +12,7 @@ import android.view.MotionEvent;
 public class GradientsLayout extends BaseFrameLayout {
 
     public interface Listener {
-        public void onGradientsFinish(GradientsLayout gradientsLayout);
+        void onGradientsFinish(GradientsLayout gradientsLayout);
     }
 
     private Listener listener = null;

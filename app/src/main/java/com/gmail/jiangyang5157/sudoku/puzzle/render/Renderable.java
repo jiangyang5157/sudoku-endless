@@ -5,7 +5,7 @@ import android.graphics.Paint;
 
 public interface Renderable {
 
-    public void update();
+    void update();
 
-    public void render(Canvas canvas, Paint paint);
+    void render(Canvas canvas, Paint paint);
 }

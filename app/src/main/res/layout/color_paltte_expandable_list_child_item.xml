@@ -34,7 +34,8 @@
             android:id="@+id/tv_hex_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:textColor="@color/black" />
     </LinearLayout>
 
     <LinearLayout
@@ -58,7 +59,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/red_abbr" />
+                android:text="@string/red_abbr"
+                android:textColor="@color/black" />
 
             <SeekBar
                 android:id="@+id/sb_red"
@@ -76,7 +78,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/green_abbr" />
+                android:text="@string/green_abbr"
+                android:textColor="@color/black" />
 
             <SeekBar
                 android:id="@+id/sb_green"
@@ -94,7 +97,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/blue_abbr" />
+                android:text="@string/blue_abbr"
+                android:textColor="@color/black" />
 
             <SeekBar
                 android:id="@+id/sb_blue"
@@ -112,7 +116,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/alpha_abbr" />
+                android:text="@string/alpha_abbr"
+                android:textColor="@color/black" />
 
             <SeekBar
                 android:id="@+id/sb_alpha"

@@ -58,7 +58,8 @@
                         android:id="@+id/tv_difficulty"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/space" />
+                        android:layout_marginStart="@dimen/space"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -76,7 +77,8 @@
                         android:id="@+id/tv_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/space" />
+                        android:layout_marginStart="@dimen/space"
+                        android:textColor="@color/black" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -101,7 +103,8 @@
                         android:id="@+id/tv_timer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/space" />
+                        android:layout_marginStart="@dimen/space"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -120,7 +123,8 @@
                         android:id="@+id/tv_best_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/space" />
+                        android:layout_marginStart="@dimen/space"
+                        android:textColor="@color/black" />
                 </LinearLayout>
             </LinearLayout>
 

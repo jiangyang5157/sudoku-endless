@@ -31,30 +31,30 @@ public abstract class Component implements Renderable {
         paint.setColor(backgroundColor);
         paint.setStyle(Paint.Style.FILL);
         canvas.drawRect(left, top, right, bottom, paint);
-
         return true;
     }
 
     public boolean renderBorder(Canvas canvas, Paint paint, int borderWidth, int borderColor) {
-        boolean ret = false;
-
         if (borderWidth > 0) {
             paint.reset();
             paint.setColor(borderColor);
             paint.setStyle(Paint.Style.STROKE);
             paint.setStrokeWidth(borderWidth < 0 ? 0 : borderWidth);
             canvas.drawRect(left, top, right, bottom, paint);
-
-            ret = true;
+            return true;
+        } else {
+            return false;
         }
-
-        return ret;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Component r = (Component) o;
         return left == r.left && top == r.top && right == r.right && bottom == r.bottom;
     }
@@ -145,8 +145,6 @@ public abstract class Component implements Renderable {
 
     /**
      * Scales up the rect by the given scale.
-     *
-     * @hide
      */
     public void scale(float scale) {
         if (scale != 1.0f) {
@@ -159,8 +157,6 @@ public abstract class Component implements Renderable {
 
     /**
      * Scales up the rect by the given scale, rounding values toward the inside.
-     *
-     * @hide
      */
     public void scaleRoundIn(float scale) {
         if (scale != 1.0f) {
@@ -183,16 +179,10 @@ public abstract class Component implements Renderable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(32);
-        sb.append("Rect(");
-        sb.append(left);
-        sb.append(", ");
-        sb.append(top);
-        sb.append(" - ");
-        sb.append(right);
-        sb.append(", ");
-        sb.append(bottom);
-        sb.append(")");
+        StringBuilder sb = new StringBuilder();
+        sb.append("Rect[");
+        sb.append(left).append(", ").append(top).append(" - ").append(right).append(", ").append(bottom);
+        sb.append("]");
         return sb.toString();
     }
 }

@@ -61,12 +61,12 @@
     <string name="msg_no_related_launcher">找不到合适的启动器</string>
     <string name="msg_no_external_storage">找不到外部存储器</string>
     <string name="msg_wrong_format">格式错误</string>
-    <string name="msg_empty_puzzle_storage">空的谜题贮藏所。开始一个谜题或者倒入谜题文件？</string>
-    <string name="msg_discard">彻底丢弃？</string>
+    <string name="msg_empty_puzzle_storage">空的谜题贮藏所</string>
+    <string name="msg_discard">丢弃？</string>
     <string name="msg_completed">谜题完成</string>
     <string name="msg_new_puzzle">您能在谜题贮藏所里面找到并继续之前的谜题</string>
     <string name="msg_restart">放弃当前的进度，重新开始？</string>
-    <string name="msg_reset">重置默认配置？</string>
+    <string name="msg_reset">恢复默认配置？</string>
 
     <string name="easy">简单</string>
     <string name="normal">普通</string>

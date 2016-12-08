@@ -32,7 +32,7 @@ public class AboutFragment extends BaseFragment {
 
         TextView test = (TextView) view.findViewById(R.id.test);
         try {
-            test.setText(String.format("%s %s", AppUtils.getString(getActivity(), R.string.app_name), AppUtils.getAppVersionName(getActivity())));
+            test.setText(String.format("%s %s", AppUtils.getString(getActivity(), R.string.app_version), AppUtils.getAppVersionName(getActivity())));
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }

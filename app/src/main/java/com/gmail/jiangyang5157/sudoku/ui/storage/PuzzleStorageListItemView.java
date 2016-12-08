@@ -2,6 +2,7 @@ package com.gmail.jiangyang5157.sudoku.ui.storage;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
@@ -26,7 +27,7 @@ public class PuzzleStorageListItemView extends FrameLayout {
         void onStateChanged(long rowId, boolean selected);
     }
 
-    private FrameLayout puzzleDrawableContainer = null;
+    private CardView puzzleDrawableContainer = null;
     private ImageView ivPuzzleDrawable = null;
     private ProgressBar pbProgress = null;
     private TextView tvTimer = null;
@@ -48,7 +49,7 @@ public class PuzzleStorageListItemView extends FrameLayout {
         this.mListener = listener;
 
         View view = LayoutInflater.from(getContext()).inflate(R.layout.puzzle_storage_list_item, null, false);
-        puzzleDrawableContainer = (FrameLayout) view.findViewById(R.id.puzzle_drawable_container);
+        puzzleDrawableContainer = (CardView) view.findViewById(R.id.puzzle_drawable_container);
         ivPuzzleDrawable = (ImageView) view.findViewById(R.id.iv_puzzle_drawable);
         pbProgress = (ProgressBar) view.findViewById(R.id.pb_progress);
         tvTimer = (TextView) view.findViewById(R.id.tv_timer);

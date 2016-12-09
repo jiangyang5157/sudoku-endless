@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.util.Log;
 import android.view.*;
 import android.widget.ListView;
 
@@ -21,7 +22,6 @@ import com.gmail.jiangyang5157.sudoku.component.BaseListFragment;
 import com.gmail.jiangyang5157.sudoku.component.SpecialKeyListener;
 import com.gmail.jiangyang5157.sudoku.Config;
 import com.gmail.jiangyang5157.sudoku.R;
-import com.gmail.jiangyang5157.sudoku.XmlUtils;
 import com.gmail.jiangyang5157.sudoku.sql.AppDatabaseApi;
 import com.gmail.jiangyang5157.sudoku.sql.PuzzleCursorLoader;
 import com.gmail.jiangyang5157.sudoku.sql.PuzzleTable;
@@ -29,9 +29,13 @@ import com.gmail.jiangyang5157.sudoku.ui.puzzle.BasePuzzleFragment;
 import com.gmail.jiangyang5157.sudoku.ui.puzzle.SudokuActivity;
 import com.gmail.jiangyang5157.tookit.android.base.AppUtils;
 import com.gmail.jiangyang5157.tookit.android.base.DeviceUtils;
+import com.gmail.jiangyang5157.tookit.base.data.IoUtils;
 import com.gmail.jiangyang5157.tookit.base.data.RegularExpressionUtils;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -43,20 +47,21 @@ import static android.support.v4.content.PermissionChecker.checkSelfPermission;
  * Date: 2014/11/23
  * Time: 11:44
  */
-public class PuzzleStorageFragment extends BaseListFragment implements LoaderManager.LoaderCallbacks<Cursor>, PuzzleStorageCursorAdapter.Listener, SpecialKeyListener, XmlWriterTask.Listener {
+public class PuzzleStorageFragment extends BaseListFragment implements LoaderManager.LoaderCallbacks<Cursor>, PuzzleStorageCursorAdapter.Listener, SpecialKeyListener, ExportPuzzle.Listener {
     private final static String TAG = "[PuzzleStorageFragment]";
 
     public static final String FRAGMENT_TAG = "PuzzleStorageFragment";
 
     private static final int FILE_CHOOSER_REQUESTCODE = 200;
 
-    private static final int READ_EXTERNAL_STORAGE_PERMISSIONS_REQUESTCODE = 1000;
+    private static final int RPERMISSIONS_REQUESTCODE_HANDLE_FILE_CHOOSER_URI = 1000;
+    private static final int RPERMISSIONS_REQUESTCODE_HANDLE_SHARE = 1001;
 
     private View emptyPuzzleStorageListFooter = null;
 
     private PuzzleStorageCursorAdapter mAdapter = null;
 
-    private XmlWriterTask task = null;
+    private ExportPuzzle mExportPuzzle = null;
 
     private Uri uriFromFileChooser;
 
@@ -93,6 +98,7 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
         super.onPrepareOptionsMenu(menu);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         final int id = item.getItemId();
@@ -105,29 +111,13 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
                 launchFileChooser();
                 return true;
             case R.id.menu_share:
-                if (DeviceUtils.isExternalStorageWritable()) {
-                    String dir = null;
-                    try {
-                        dir = DeviceUtils.getSdacrdFile() + File.separator + AppUtils.getAppPackageName(getActivity());
-                    } catch (PackageManager.NameNotFoundException e) {
-                        e.printStackTrace();
+                if (checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    if (shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                        // Explain to the user why we need to read the contacts
                     }
-                    File file = new File(dir);
-                    if (!file.exists() || !file.isDirectory()) {
-                        file.mkdirs();
-                    }
-
-                    String name = new SimpleDateFormat(RegularExpressionUtils.DATE_REGEX_FILE_NAME, Locale.getDefault()).format(new Date()) + "." + Config.PUZZLE_FILE_END;
-                    String path = dir + File.separator + name;
-
-                    if (task == null || task.getStatus() == AsyncTask.Status.FINISHED) {
-                        task = new XmlWriterTask(getActivity(), path, PuzzleStorageFragment.this);
-                    }
-                    if (task.getStatus() == AsyncTask.Status.PENDING) {
-                        task.execute(mAdapter.getSelectedRowIDs());
-                    }
+                    requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, RPERMISSIONS_REQUESTCODE_HANDLE_SHARE);
                 } else {
-                    AppUtils.buildToast(getActivity(), R.string.msg_no_external_storage);
+                    handleShare();
                 }
                 return true;
             case R.id.menu_discard:
@@ -148,18 +138,45 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
         }
     }
 
+    private void handleShare() {
+        if (DeviceUtils.isExternalStorageWritable()) {
+            String dirPath = null;
+            try {
+                dirPath = DeviceUtils.getSdacrdFile() + File.separator + AppUtils.getAppPackageName(getActivity());
+            } catch (PackageManager.NameNotFoundException e) {
+                Log.e(TAG, "Access external storage failed.");
+                return;
+            }
+            File directory = new File(dirPath);
+            if (!directory.exists() || !directory.isDirectory()) {
+                boolean mkdirs = directory.mkdirs();
+            }
+            String name = new SimpleDateFormat(RegularExpressionUtils.DATE_REGEX_FILE_NAME, Locale.getDefault()).format(new Date()) + "." + Config.PUZZLE_FILE_END;
+            String path = dirPath + File.separator + name;
+
+            if (mExportPuzzle == null || mExportPuzzle.getStatus() == AsyncTask.Status.FINISHED) {
+                mExportPuzzle = new ExportPuzzle(getActivity(), path, this);
+            }
+            if (mExportPuzzle.getStatus() == AsyncTask.Status.PENDING) {
+                mExportPuzzle.execute(mAdapter.getSelectedRowIDs());
+            }
+        } else {
+            AppUtils.buildToast(getActivity(), R.string.msg_no_external_storage);
+        }
+    }
+
     @Override
     public void onPreExecute() {
         ((BaseActivity) getActivity()).showProcessingDialog();
     }
 
     @Override
-    public void onPostExecute(File result) {
+    public void onPostExecute(File file) {
         if (getActivity() == null) {
             return;
         }
         ((BaseActivity) getActivity()).hideProcessingDialog();
-        sendEmail(getActivity(), result);
+        sendEmail(getActivity(), file);
     }
 
     public static final boolean sendEmail(Context context, File file) {
@@ -271,11 +288,10 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
                 if (resultCode == Activity.RESULT_OK && data != null) {
                     uriFromFileChooser = data.getData();
                     if (checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                        // Should we show an explanation?
                         if (shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE)) {
                             // Explain to the user why we need to read the contacts
                         }
-                        requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, READ_EXTERNAL_STORAGE_PERMISSIONS_REQUESTCODE);
+                        requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, RPERMISSIONS_REQUESTCODE_HANDLE_FILE_CHOOSER_URI);
                         return;
                     } else {
                         handleFileChooserUri();
@@ -288,25 +304,69 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
     }
 
     private void handleFileChooserUri() {
-        String path = DeviceUtils.getPath(getActivity(), uriFromFileChooser);
-        if (path.endsWith("." + Config.PUZZLE_FILE_END)) {
-            XmlUtils.read(getActivity(), path);
+        String filePath = DeviceUtils.getPath(getActivity(), uriFromFileChooser);
+        if (filePath.endsWith("." + Config.PUZZLE_FILE_END)) {
+            importPuzzle(getActivity(), filePath);
             getLoaderManager().restartLoader(PuzzleCursorLoader.QUERY_PUZZLES, null, this);
         } else {
             AppUtils.buildToast(getActivity(), R.string.msg_wrong_format);
         }
     }
 
+    public static void importPuzzle(Context context, String filePath) {
+        StringBuilder sb = new StringBuilder();
+        InputStream in = null;
+        try {
+            in = new FileInputStream(new File(filePath));
+            IoUtils.read(in, line -> {
+                if (line == null) {
+                    return false;
+                } else {
+                    sb.append(line);
+                    return true;
+                }
+            });
+        } catch (IOException e) {
+            Log.e(TAG, "ERROR: import puzzle");
+            return;
+        } finally {
+            try {
+                if (in != null) {
+                    in.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        String[] jsons = sb.toString().split(ExportPuzzle.JSON_PREFIX);
+        int length = jsons.length;
+        // empty json[0]
+        for (int i = 1; i < length; i++) {
+            String cache = jsons[i];
+            String drawable = "";
+            String longDate = String.valueOf((new Date()).getTime());
+            String timer = "0";
+            String best_time = "0";
+            long rowId = AppDatabaseApi.getInstance(context).insertPuzzle(cache, drawable, longDate, timer, best_time);
+        }
+    }
+
     @Override
     public void onRequestPermissionsResult(final int requestCode, @NonNull final String[] permissions, @NonNull final int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == READ_EXTERNAL_STORAGE_PERMISSIONS_REQUESTCODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted.
+        if (grantResults.length <= 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+            // User refused to grant permission.
+            return;
+        }
+
+        switch (requestCode) {
+            case RPERMISSIONS_REQUESTCODE_HANDLE_FILE_CHOOSER_URI:
                 handleFileChooserUri();
-            } else {
-                // User refused to grant permission.
-            }
+                break;
+            case RPERMISSIONS_REQUESTCODE_HANDLE_SHARE:
+                handleShare();
+                break;
         }
     }
 

@@ -3,7 +3,6 @@ package com.gmail.jiangyang5157.sudoku.ui.puzzle;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.animation.AnimationUtils;
 
 import com.gmail.jiangyang5157.sudoku.component.BaseActivity;
@@ -13,10 +12,9 @@ import com.gmail.jiangyang5157.sudoku.puzzle.*;
 import com.gmail.jiangyang5157.sudoku.sql.AppDatabaseApi;
 import com.gmail.jiangyang5157.sudoku.sql.PuzzleTable;
 import com.gmail.jiangyang5157.tookit.android.base.AppUtils;
-import com.gmail.jiangyang5157.tookit.android.base.EncodeUtils;
 import com.gmail.jiangyang5157.tookit.android.sql.BaseTable;
+import com.google.gson.Gson;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -68,13 +66,9 @@ public class PuzzleFragment extends BasePuzzleFragment implements KeypadFragment
         String timer = c.getString(c.getColumnIndexOrThrow(PuzzleTable.KEY_TIMER));
         String best_time = c.getString(c.getColumnIndexOrThrow(PuzzleTable.KEY_BEST_TIME));
 
-        PuzzleCache puzzleCache = null;
-        try {
-            puzzleCache = (PuzzleCache) EncodeUtils.decodeObject(cache);
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        assert puzzleCache != null;
+        Gson gson = new Gson();
+        PuzzleCache puzzleCache = gson.fromJson(cache, PuzzleCache.class);
+
         mNodesCache = puzzleCache.getNodesCache();
         if (mTimer != null) {
             mTimer.setTime(Integer.parseInt(timer), true);
@@ -164,8 +158,8 @@ public class PuzzleFragment extends BasePuzzleFragment implements KeypadFragment
         mNodesCache = puzzleView.getNodesCache();
 
         // everything will be updated [onPause()]
-        String cache = puzzleView.getCacheBase64(mNodesCache, mLevel);
-        String drawable = puzzleView.getDrawableBase64();
+        String cache = puzzleView.getPuzzleCache(mNodesCache, mLevel);
+        String drawable = puzzleView.getPuzzleDrawable();
         String longDate = String.valueOf(new Date().getTime());
         String timer = null;
         if (mTimer != null) {
@@ -213,7 +207,6 @@ public class PuzzleFragment extends BasePuzzleFragment implements KeypadFragment
         }
 
         puzzleView.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.self_rotate));
-        //TODO anim for completed puzzle
         AppUtils.buildToast(getActivity(), R.string.msg_completed);
     }
 
@@ -274,12 +267,13 @@ public class PuzzleFragment extends BasePuzzleFragment implements KeypadFragment
         }
 
         String rowId = String.valueOf(this.rowId);
-        String cache = puzzleView.getCacheBase64(mNodesCache, mLevel);
-        String drawable = puzzleView.getDrawableBase64();
+        String cache = puzzleView.getPuzzleCache(mNodesCache, mLevel);
+        String drawable = puzzleView.getPuzzleDrawable();
         String longDate = String.valueOf(new Date().getTime());
         String stringTimer = String.valueOf(timer);
         String stringBestTime = String.valueOf(mBestTime);
-        int result = AppDatabaseApi.getInstance(getActivity()).updatePuzzle(rowId, cache, drawable, longDate, stringTimer, stringBestTime);
+        int result = AppDatabaseApi.getInstance(getActivity()).updatePuzzle(
+                rowId, cache, drawable, longDate, stringTimer, stringBestTime);
 //        Log.d(TAG, "updatePuzzle - result = " + result);
         return true;
     }

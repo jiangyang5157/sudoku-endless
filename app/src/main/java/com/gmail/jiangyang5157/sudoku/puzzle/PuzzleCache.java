@@ -1,12 +1,9 @@
 package com.gmail.jiangyang5157.sudoku.puzzle;
 
-import java.io.Serializable;
-
-public class PuzzleCache implements Serializable {
-
-    private static final long serialVersionUID = 2305843009213693952L;
+public class PuzzleCache {
 
     private NodeCache[][] nodesCache = null;
+
     private Level level = null;
 
     public PuzzleCache(NodeCache[][] nodesCache, Level level) {

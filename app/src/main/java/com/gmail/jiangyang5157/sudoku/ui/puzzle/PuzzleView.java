@@ -2,6 +2,7 @@ package com.gmail.jiangyang5157.sudoku.ui.puzzle;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -15,6 +16,7 @@ import com.gmail.jiangyang5157.sudoku.puzzle.render.RenderThread;
 import com.gmail.jiangyang5157.sudoku.puzzle.render.node.Node;
 import com.gmail.jiangyang5157.tookit.android.base.DeviceUtils;
 import com.gmail.jiangyang5157.tookit.android.base.EncodeUtils;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 
@@ -281,36 +283,29 @@ public class PuzzleView extends SurfaceView implements SurfaceHolder.Callback, K
         }
     }
 
-    public String getDrawableBase64() {
+    private Bitmap screenshot(int dstWidth, int dstHeight) {
+        if (getWidth() <= 0 || getHeight() <= 0) {
+            return null;
+        }
+        Bitmap screenshotBitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.RGB_565);
+        renderThread.screenshot(screenshotBitmap);
+        return Bitmap.createScaledBitmap(screenshotBitmap, dstWidth, dstHeight, true);
+    }
+
+    public String getPuzzleDrawable() {
         int dstWidth = DeviceUtils.getDimensionPixelOffset(getContext().getResources(), R.dimen.puzzle_drawable_width);
         int dstHeight = DeviceUtils.getDimensionPixelOffset(getContext().getResources(), R.dimen.puzzle_drawable_height);
         try {
             return EncodeUtils.encodeBitmap(screenshot(dstWidth, dstHeight), 100);
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e(TAG, "Create puzzle drawable string failed.");
         }
         return null;
     }
 
-    private Bitmap screenshot(int dstWidth, int dstHeight) {
-        if (getWidth() <= 0 || getHeight() <= 0) {
-            return null;
-        }
-
-        Bitmap screenshotBitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
-        renderThread.screenshot(screenshotBitmap);
-
-        screenshotBitmap = Bitmap.createScaledBitmap(screenshotBitmap, dstWidth, dstHeight, true);
-        return screenshotBitmap;
-    }
-
-    public String getCacheBase64(NodeCache[][] nodesCache, Level level) {
-        try {
-            return EncodeUtils.encodeObject(new PuzzleCache(nodesCache, level));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public String getPuzzleCache(NodeCache[][] nodesCache, Level level) {
+        Gson gson = new Gson();
+        return gson.toJson(new PuzzleCache(nodesCache, level));
     }
 
     @Override

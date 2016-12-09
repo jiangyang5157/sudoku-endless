@@ -2,6 +2,7 @@ package com.gmail.jiangyang5157.sudoku.ui.storage;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
@@ -12,6 +13,7 @@ import com.gmail.jiangyang5157.sudoku.puzzle.PuzzleCache;
 import com.gmail.jiangyang5157.sudoku.sql.AppDatabaseApi;
 import com.gmail.jiangyang5157.sudoku.sql.PuzzleTable;
 import com.gmail.jiangyang5157.tookit.android.base.EncodeUtils;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -138,19 +140,17 @@ public class PuzzleStorageCursorAdapter extends CursorAdapter implements PuzzleS
         holder.self.setTimer(Integer.parseInt(cursor.getString(cursor.getColumnIndexOrThrow(PuzzleTable.KEY_TIMER))));
         holder.self.setBestTime(Integer.parseInt(cursor.getString(cursor.getColumnIndexOrThrow(PuzzleTable.KEY_BEST_TIME))));
 
-        try {
-            PuzzleCache cache = (PuzzleCache) EncodeUtils.decodeObject(cursor.getString(cursor.getColumnIndexOrThrow(PuzzleTable.KEY_CACHE)));
-            holder.self.setDifficulty(cache.getLevel().getDifficulty());
-            int[] puzzleProgress = getPuzzleProgress(cache.getNodesCache());
-            holder.self.setProgress(puzzleProgress[0], puzzleProgress[1]);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        String cacheString = cursor.getString(cursor.getColumnIndexOrThrow(PuzzleTable.KEY_CACHE));
+        Gson gson = new Gson();
+        PuzzleCache cache = gson.fromJson(cacheString, PuzzleCache.class);
+        holder.self.setDifficulty(cache.getLevel().getDifficulty());
+        int[] puzzleProgress = getPuzzleProgress(cache.getNodesCache());
+        holder.self.setProgress(puzzleProgress[0], puzzleProgress[1]);
 
+        String drawableString = cursor.getString(cursor.getColumnIndexOrThrow(PuzzleTable.KEY_DRAWABLE));
         try {
-            holder.self.setPuzzleDrawable(EncodeUtils.decodeDrawable(context, cursor.getString(cursor.getColumnIndexOrThrow(PuzzleTable.KEY_DRAWABLE))));
+            Drawable drawable = EncodeUtils.decodeDrawable(context, drawableString);
+            holder.self.setPuzzleDrawable(drawable);
             holder.self.setSelected(selectedRowIDs.contains(rowId), true);
         } catch (IOException e) {
             e.printStackTrace();

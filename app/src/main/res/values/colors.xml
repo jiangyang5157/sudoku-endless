@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="theme_base">#ff4285f4</color> <!-- 66, 133, 244 -->
-    <color name="theme_base_dark">#ff3367d6</color> <!-- 51, 103, 214 -->
+    <!--https://material.google.com/style/color.html#color-color-palette-->
 
-    <color name="theme_settings">#ff777777</color> <!-- 119, 119, 119 -->
-    <color name="theme_settings_dark">#ff555555</color>
+    <color name="theme_base">#1565C0</color>
+    <color name="theme_base_dark">#0D47A1</color>
 
-    <color name="theme_puzzle_storage">#ffF44336</color> <!-- 244, 67, 54 -->
-    <color name="theme_puzzle_storage_dark">#ffE53935</color> <!-- 229, 57, 53 -->
+    <color name="theme_teal">#00695C</color>
+    <color name="theme_teal_dark">#004D40</color>
 
-    <color name="theme_sudoku">#ff0f9d58</color> <!-- 15, 157, 88 -->
-    <color name="theme_sudoku_dark">#ff0b8043</color> <!-- 11, 128, 67 -->
+    <color name="theme_gray">#424242</color>
+    <color name="theme_gray_dark">#212121</color>
+
+    <color name="theme_red">#C62828</color>
+    <color name="theme_red_dark">#B71C1C</color>
 
     <color name="transparent">#00000000</color>
-    <color name="white">#ffffffff</color>
-    <color name="black">#ff000000</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
 
-    <color name="conflict">#ffdb4437</color> <!-- 219, 68, 55 -->
+    <color name="conflict">#db4437</color>
 
-    <!-- card colors -->
-    <color name="card_background">#ffffff</color>
-    <color name="card_shadow_1">#d4d4d4</color>
-    <color name="card_shadow_2">#dddddd</color>
-    <color name="card_detailing">#eee</color>
+    <color name="divider">#1E000000</color>
+
 </resources>

@@ -19,7 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                yang:icon_bg="@color/theme_puzzle_storage"
+                yang:icon_bg="@color/theme_base"
                 yang:icon_center="@drawable/ic_restore_white_24px"
                 yang:text="@string/resume"></com.gmail.jiangyang5157.sudoku.component.view.IconButton>
 

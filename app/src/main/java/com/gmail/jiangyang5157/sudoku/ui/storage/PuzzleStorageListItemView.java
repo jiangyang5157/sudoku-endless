@@ -1,6 +1,7 @@
 package com.gmail.jiangyang5157.sudoku.ui.storage;
 
 import android.content.Context;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
@@ -57,6 +58,11 @@ public class PuzzleStorageListItemView extends FrameLayout {
         bestTimeContainer = (LinearLayout) view.findViewById(R.id.best_time_container);
         tvBestTime = (TextView) view.findViewById(R.id.tv_best_time);
         tvDifficulty = (TextView) view.findViewById(R.id.tv_difficulty);
+
+//        ((ImageView) view.findViewById(R.id.iv_difficulty)).setColorFilter(AppUtils.getColor(getContext(), R.color.theme_puzzle_storage, null), PorterDuff.Mode.SRC_IN);
+//        ((ImageView) view.findViewById(R.id.iv_date)).setColorFilter(AppUtils.getColor(getContext(), R.color.theme_puzzle_storage, null), PorterDuff.Mode.SRC_IN);
+//        ((ImageView) view.findViewById(R.id.iv_timer)).setColorFilter(AppUtils.getColor(getContext(), R.color.theme_puzzle_storage, null), PorterDuff.Mode.SRC_IN);
+//        ((ImageView) view.findViewById(R.id.iv_best_time)).setColorFilter(AppUtils.getColor(getContext(), R.color.theme_puzzle_storage, null), PorterDuff.Mode.SRC_IN);
 
         puzzleDrawableContainer.setOnClickListener(new OnClickListener() {
             @Override

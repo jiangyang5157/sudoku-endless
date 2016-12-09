@@ -43,6 +43,10 @@ public class ColorPaletteExpandableListChildItemView extends FrameLayout {
         sbGreen = (SeekBar) view.findViewById(R.id.sb_green);
         sbBlue = (SeekBar) view.findViewById(R.id.sb_blue);
         sbAlpha = (SeekBar) view.findViewById(R.id.sb_alpha);
+        sbRed.setMax(255);
+        sbGreen.setMax(255);
+        sbBlue.setMax(255);
+        sbAlpha.setMax(255);
 
         sbRed.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override

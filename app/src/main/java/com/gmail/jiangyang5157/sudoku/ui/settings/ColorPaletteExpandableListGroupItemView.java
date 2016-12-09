@@ -28,9 +28,9 @@ public class ColorPaletteExpandableListGroupItemView extends FrameLayout {
 
     public void setExpanded(boolean isExpanded) {
         if (isExpanded) {
-            indicator.setImageDrawable(AppUtils.getDrawable(getContext(), R.drawable.ic_arrow_drop_up_black_24px, null));
+            indicator.setImageDrawable(AppUtils.getDrawable(getContext(), R.drawable.ic_keyboard_arrow_up_black_24px, null));
         } else {
-            indicator.setImageDrawable(AppUtils.getDrawable(getContext(), R.drawable.ic_arrow_drop_down_black_24px, null));
+            indicator.setImageDrawable(AppUtils.getDrawable(getContext(), R.drawable.ic_keyboard_arrow_down_black_24px, null));
         }
     }
 

@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_textured_slash"
     android:descendantFocusability="blocksDescendants"
     android:gravity="center_vertical"
     android:orientation="horizontal"
@@ -41,7 +40,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_textured_slash"
         android:descendantFocusability="blocksDescendants"
         android:gravity="center_horizontal"
         android:orientation="vertical"
@@ -65,8 +63,7 @@
             <SeekBar
                 android:id="@+id/sb_red"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:max="@integer/color_component_max_value" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
@@ -84,8 +81,7 @@
             <SeekBar
                 android:id="@+id/sb_green"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:max="@integer/color_component_max_value" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
@@ -103,8 +99,7 @@
             <SeekBar
                 android:id="@+id/sb_blue"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:max="@integer/color_component_max_value" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
@@ -122,8 +117,7 @@
             <SeekBar
                 android:id="@+id/sb_alpha"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:max="@integer/color_component_max_value" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
     </LinearLayout>

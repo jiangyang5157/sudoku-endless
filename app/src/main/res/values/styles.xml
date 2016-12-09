@@ -20,20 +20,18 @@
     </style>
 
     <style name="Theme.Settings" parent="Theme.Main">
-        <item name="colorPrimary">@color/theme_settings</item>
-        <item name="colorPrimaryDark">@color/theme_settings_dark</item>
+        <item name="colorPrimary">@color/theme_gray</item>
+        <item name="colorPrimaryDark">@color/theme_gray_dark</item>
     </style>
 
     <style name="Theme.PuzzleStorage" parent="Theme.Main">
-        <item name="colorPrimary">@color/theme_puzzle_storage</item>
-        <item name="colorPrimaryDark">@color/theme_puzzle_storage_dark</item>
+        <item name="colorPrimary">@color/theme_red</item>
+        <item name="colorPrimaryDark">@color/theme_red_dark</item>
     </style>
 
     <style name="Theme.Sudoku" parent="Theme.Main">
-        <item name="colorPrimary">@color/theme_sudoku</item>
-        <item name="colorPrimaryDark">@color/theme_sudoku_dark</item>
-
-        <item name="android:windowBackground">@drawable/bg_textured_slash</item>
+        <item name="colorPrimary">@color/theme_teal</item>
+        <item name="colorPrimaryDark">@color/theme_teal_dark</item>
     </style>
 
     <style name="Theme.DialogFragment.Base" parent="Base.Theme.AppCompat.Light.Dialog">

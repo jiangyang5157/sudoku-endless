@@ -1,6 +1,4 @@
 <resources>
     <integer name="anim_frame_time">16</integer>
 
-    <integer name="color_component_max_value">255</integer>
-
 </resources>

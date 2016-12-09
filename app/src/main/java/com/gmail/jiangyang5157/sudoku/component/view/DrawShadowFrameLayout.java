@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import android.util.Property;
 
 import com.gmail.jiangyang5157.sudoku.R;
+import com.gmail.jiangyang5157.tookit.base.time.TimeUtils;
 
 public class DrawShadowFrameLayout extends BaseFrameLayout {
     private Drawable mShadowDrawable;
@@ -90,7 +91,7 @@ public class DrawShadowFrameLayout extends BaseFrameLayout {
             mAnimator = ObjectAnimator.ofFloat(this, SHADOW_ALPHA,
                     shadowVisible ? 0f : 1f,
                     shadowVisible ? 1f : 0f);
-            mAnimator.setDuration(1000);
+            mAnimator.setDuration(TimeUtils.MILLI_IN_SECOND);
             mAnimator.start();
         }
 

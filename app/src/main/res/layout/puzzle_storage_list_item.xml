@@ -17,8 +17,8 @@
 
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/puzzle_drawable_container"
-            android:layout_width="@dimen/puzzle_storage_drawable_width"
-            android:layout_height="@dimen/puzzle_storage_drawable_height"
+            android:layout_width="@dimen/puzzle_drawable_width"
+            android:layout_height="@dimen/puzzle_drawable_height"
             android:layout_margin="@dimen/space"
             card_view:cardElevation="@dimen/card_view_elevation">
 

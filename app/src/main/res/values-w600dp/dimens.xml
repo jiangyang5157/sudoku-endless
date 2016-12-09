@@ -1,5 +1,0 @@
-<resources>
-    <dimen name="puzzle_storage_drawable_width">192dp</dimen>
-    <dimen name="puzzle_storage_drawable_height">192dp</dimen>
-
-</resources>

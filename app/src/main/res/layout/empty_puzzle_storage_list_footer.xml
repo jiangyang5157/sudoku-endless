@@ -5,7 +5,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/puzzle_storage_drawable_height">
+        android:layout_height="@dimen/puzzle_drawable_height">
 
         <TextView
             android:layout_width="wrap_content"

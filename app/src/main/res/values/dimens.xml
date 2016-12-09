@@ -20,11 +20,8 @@
 
     <dimen name="timer_colon_text_size">50px</dimen>
 
-    <dimen name="puzzle_drawable_width">192dp</dimen>
-    <dimen name="puzzle_drawable_height">192dp</dimen>
-
-    <dimen name="puzzle_storage_drawable_width">144dp</dimen>
-    <dimen name="puzzle_storage_drawable_height">144dp</dimen>
+    <dimen name="puzzle_drawable_width">100dp</dimen>
+    <dimen name="puzzle_drawable_height">100dp</dimen>
 
     <dimen name="color_palttes_drawable_width">72dip</dimen>
     <dimen name="color_palttes_drawable_height">72dip</dimen>

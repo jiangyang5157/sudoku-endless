@@ -105,7 +105,7 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
                 launchFileChooser();
                 return true;
             case R.id.menu_share:
-                if (DeviceUtils.hasSdcard()) {
+                if (DeviceUtils.isExternalStorageWritable()) {
                     String dir = null;
                     try {
                         dir = DeviceUtils.getSdacrdFile() + File.separator + AppUtils.getAppPackageName(getActivity());

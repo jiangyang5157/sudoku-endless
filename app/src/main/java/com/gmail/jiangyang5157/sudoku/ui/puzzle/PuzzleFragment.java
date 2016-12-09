@@ -272,8 +272,7 @@ public class PuzzleFragment extends BasePuzzleFragment implements KeypadFragment
         String longDate = String.valueOf(new Date().getTime());
         String stringTimer = String.valueOf(timer);
         String stringBestTime = String.valueOf(mBestTime);
-        int result = AppDatabaseApi.getInstance(getActivity()).updatePuzzle(
-                rowId, cache, drawable, longDate, stringTimer, stringBestTime);
+        int result = AppDatabaseApi.getInstance(getActivity()).updatePuzzle(rowId, cache, drawable, longDate, stringTimer, stringBestTime);
 //        Log.d(TAG, "updatePuzzle - result = " + result);
         return true;
     }

@@ -3,7 +3,6 @@ package com.gmail.jiangyang5157.sudoku.ui.storage;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.gmail.jiangyang5157.sudoku.sql.AppDatabaseApi;
 import com.gmail.jiangyang5157.sudoku.sql.PuzzleTable;

@@ -16,6 +16,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 
 class ExportPuzzle extends AsyncTask<HashSet<Long>, Void, File> {
+
     static final String JSON_PREFIX = "#";
 
     public interface Listener {

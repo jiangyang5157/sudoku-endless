@@ -19,9 +19,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                yang:icon_bg="@color/theme_base"
+                yang:icon_bg="@color/theme_light_blue"
                 yang:icon_center="@drawable/ic_restore_white_24px"
-                yang:text="@string/resume"></com.gmail.jiangyang5157.sudoku.component.view.IconButton>
+                yang:text="@string/resume" />
 
             <Space
                 android:layout_width="match_parent"
@@ -44,18 +44,18 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        yang:icon_bg="@color/theme_base"
+                        yang:icon_bg="@color/theme_light_blue"
                         yang:icon_center="@drawable/ic_label_outline_white_24px"
-                        yang:text="@string/easy"></com.gmail.jiangyang5157.sudoku.component.view.IconButton>
+                        yang:text="@string/easy" />
 
                     <com.gmail.jiangyang5157.sudoku.component.view.IconButton
                         android:id="@+id/ib_level_normal"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        yang:icon_bg="@color/theme_base"
+                        yang:icon_bg="@color/theme_light_blue"
                         yang:icon_center="@drawable/ic_label_outline_white_24px"
-                        yang:text="@string/normal"></com.gmail.jiangyang5157.sudoku.component.view.IconButton>
+                        yang:text="@string/normal" />
                 </LinearLayout>
 
                 <Space
@@ -73,18 +73,18 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        yang:icon_bg="@color/theme_base"
+                        yang:icon_bg="@color/theme_light_blue"
                         yang:icon_center="@drawable/ic_label_outline_white_24px"
-                        yang:text="@string/nightmare"></com.gmail.jiangyang5157.sudoku.component.view.IconButton>
+                        yang:text="@string/nightmare" />
 
                     <com.gmail.jiangyang5157.sudoku.component.view.IconButton
                         android:id="@+id/ib_level_hell"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        yang:icon_bg="@color/theme_base"
+                        yang:icon_bg="@color/theme_light_blue"
                         yang:icon_center="@drawable/ic_label_outline_white_24px"
-                        yang:text="@string/hell"></com.gmail.jiangyang5157.sudoku.component.view.IconButton>
+                        yang:text="@string/hell" />
                 </LinearLayout>
 
             </LinearLayout>

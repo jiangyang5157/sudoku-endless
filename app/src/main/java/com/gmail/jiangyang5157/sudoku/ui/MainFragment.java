@@ -38,40 +38,17 @@ public class MainFragment extends BaseFragment {
         IconButton ibLevelNightmare = (IconButton) view.findViewById(R.id.ib_level_nightmare);
         IconButton ibLevelHell = (IconButton) view.findViewById(R.id.ib_level_hell);
 
-        ibLevelEasy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                actionNewPuzzle(new Level(Difficulty.EASY));
-            }
-        });
-        ibLevelNormal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                actionNewPuzzle(new Level(Difficulty.NORMAL));
-            }
-        });
-        ibLevelNightmare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                actionNewPuzzle(new Level(Difficulty.NIGHTMARE));
-            }
-        });
-        ibLevelHell.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                actionNewPuzzle(new Level(Difficulty.HELL));
-            }
-        });
+        ibLevelEasy.setOnClickListener(v -> actionNewPuzzle(new Level(Difficulty.EASY)));
+        ibLevelNormal.setOnClickListener(v -> actionNewPuzzle(new Level(Difficulty.NORMAL)));
+        ibLevelNightmare.setOnClickListener(v -> actionNewPuzzle(new Level(Difficulty.NIGHTMARE)));
+        ibLevelHell.setOnClickListener(v -> actionNewPuzzle(new Level(Difficulty.HELL)));
     }
 
     private void validateResume() {
         final Cursor cursor = AppDatabaseApi.getInstance(getActivity()).queryPuzzles(AppDatabaseApi.buildOrderByDesc(PuzzleTable.KEY_DATE));
-        ibResume.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                long rowId = Long.parseLong(cursor.getString(cursor.getColumnIndexOrThrow(PuzzleTable.KEY_ROWID)));
-                actionNewPuzzle(rowId);
-            }
+        ibResume.setOnClickListener(v -> {
+            long rowId = Long.parseLong(cursor.getString(cursor.getColumnIndexOrThrow(PuzzleTable.KEY_ROWID)));
+            actionNewPuzzle(rowId);
         });
 
         if (cursor.getCount() <= 0) {

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.gmail.jiangyang5157.sudoku.R;
 
 public abstract class BaseListFragment extends ListFragment {
+
     private View mRoot = null;
     private String mContentDescription = null;
 

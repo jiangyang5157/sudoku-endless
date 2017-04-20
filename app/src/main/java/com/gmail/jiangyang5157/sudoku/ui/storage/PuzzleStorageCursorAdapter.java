@@ -20,6 +20,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 class PuzzleStorageCursorAdapter extends CursorAdapter implements PuzzleStorageListItemView.Listener {
+
     private Context mContext = null;
     private Listener mListener = null;
 

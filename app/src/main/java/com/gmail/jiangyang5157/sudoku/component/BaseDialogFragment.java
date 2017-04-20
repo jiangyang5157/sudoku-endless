@@ -55,6 +55,8 @@ public abstract class BaseDialogFragment extends DialogFragment {
         super.onStart();
 
         Window window = getDialog().getWindow();
+        assert window != null;
+
         if (isTransparent()) {
             window.setBackgroundDrawableResource(R.color.transparent);
         }

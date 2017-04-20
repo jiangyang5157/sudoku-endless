@@ -14,6 +14,7 @@ import com.gmail.jiangyang5157.sudoku.R;
 import com.gmail.jiangyang5157.tookit.base.time.TimeUtils;
 
 public class DrawShadowFrameLayout extends BaseFrameLayout {
+
     private Drawable mShadowDrawable;
     private NinePatchDrawable mShadowNinePatchDrawable;
     private int mShadowTopOffset;

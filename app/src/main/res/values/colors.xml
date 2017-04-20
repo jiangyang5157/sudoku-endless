@@ -2,14 +2,20 @@
 <resources>
     <!--https://material.google.com/style/color.html#color-color-palette-->
 
-    <color name="theme_base">#1565C0</color>
-    <color name="theme_base_dark">#0D47A1</color>
+    <color name="theme_blue">#1565C0</color>
+    <color name="theme_blue_dark">#0D47A1</color>
+
+    <color name="theme_light_blue">#0277BD</color>
+    <color name="theme_light_blue_dark">#01579B</color>
 
     <color name="theme_teal">#00695C</color>
     <color name="theme_teal_dark">#004D40</color>
 
     <color name="theme_gray">#424242</color>
     <color name="theme_gray_dark">#212121</color>
+
+    <color name="theme_light_green">#558B2F</color>
+    <color name="theme_light_green_dark">#33691E</color>
 
     <color name="theme_red">#C62828</color>
     <color name="theme_red_dark">#B71C1C</color>

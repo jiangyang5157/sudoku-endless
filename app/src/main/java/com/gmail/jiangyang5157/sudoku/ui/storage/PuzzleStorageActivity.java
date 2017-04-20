@@ -40,7 +40,6 @@ public class PuzzleStorageActivity extends BaseActivity {
         if (mPuzzleStorageFragment.onBackPressed()) {
             // handled BACK in Fragment, do nothing in the Activity
         } else {
-            // Didn't handle BACK in Fragment
             super.onBackPressed();
         }
     }

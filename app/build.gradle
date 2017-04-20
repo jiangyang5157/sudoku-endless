@@ -8,8 +8,8 @@ android {
         applicationId "com.gmail.jiangyang5157.sudoku"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 21020
-        versionName "2.1.2"
+        versionCode 21030
+        versionName "2.1.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         jackOptions {

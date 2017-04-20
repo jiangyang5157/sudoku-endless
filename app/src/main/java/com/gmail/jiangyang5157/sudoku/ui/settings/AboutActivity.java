@@ -34,7 +34,7 @@ public class AboutActivity extends BaseActivity {
             mAboutFragment = BaseFragment.newInstance(AboutFragment.class);
 
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, BaseFragment.newInstance(AboutFragment.class), AboutFragment.FRAGMENT_TAG)
+                    .add(R.id.container, mAboutFragment, AboutFragment.FRAGMENT_TAG)
                     .commit();
         } else {
             mAboutFragment = (AboutFragment) getFragmentManager().findFragmentByTag(AboutFragment.FRAGMENT_TAG);

@@ -15,8 +15,8 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 
-public class ExportPuzzle extends AsyncTask<HashSet<Long>, Void, File> {
-    public static final String JSON_PREFIX = "#";
+class ExportPuzzle extends AsyncTask<HashSet<Long>, Void, File> {
+    static final String JSON_PREFIX = "#";
 
     public interface Listener {
         void onPreExecute();
@@ -28,7 +28,7 @@ public class ExportPuzzle extends AsyncTask<HashSet<Long>, Void, File> {
     private String mFilePath = null;
     private Listener mListener = null;
 
-    public ExportPuzzle(Context context, String filePath, Listener listener) {
+    ExportPuzzle(Context context, String filePath, Listener listener) {
         this.mContext = context;
         this.mFilePath = filePath;
         this.mListener = listener;
@@ -43,7 +43,7 @@ public class ExportPuzzle extends AsyncTask<HashSet<Long>, Void, File> {
     }
 
     @Override
-    protected File doInBackground(HashSet<Long>... params) {
+    protected final File doInBackground(HashSet<Long>... params) {
         HashSet<Long> rowIds = params[0];
         StringBuilder content = new StringBuilder();
 

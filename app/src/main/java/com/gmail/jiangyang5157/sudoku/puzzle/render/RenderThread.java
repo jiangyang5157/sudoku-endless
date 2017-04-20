@@ -4,13 +4,11 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.util.Log;
 import android.view.SurfaceHolder;
 
 import com.gmail.jiangyang5157.tookit.base.time.TimeUtils;
 
 public class RenderThread extends Thread {
-    private static final String TAG = "[RenderThread]";
 
     private boolean isRunning = false;
     private boolean isPaused = false;

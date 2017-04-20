@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class PuzzleFragment extends BasePuzzleFragment implements KeypadFragment.Listener, PuzzleGeneratorTask.Listener {
-    private final static String TAG = "[PuzzleFragment]";
 
     public static final String FRAGMENT_TAG = "PuzzleFragment";
 

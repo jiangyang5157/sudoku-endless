@@ -7,7 +7,7 @@ import com.gmail.jiangyang5157.sudoku.puzzle.Level;
 
 import java.util.ArrayList;
 
-import go.dlx.Dlx;
+import sudoku.Sudoku;
 
 public class PuzzleGeneratorTask extends AsyncTask<Level, Integer, ArrayList<int[][]>> {
 
@@ -20,7 +20,7 @@ public class PuzzleGeneratorTask extends AsyncTask<Level, Integer, ArrayList<int
 
     private Listener mListener = null;
 
-    public PuzzleGeneratorTask(Listener listener) {
+    PuzzleGeneratorTask(Listener listener) {
         this.mListener = listener;
     }
 
@@ -68,7 +68,7 @@ public class PuzzleGeneratorTask extends AsyncTask<Level, Integer, ArrayList<int
      * @param j a column of board
      * @return a block of board
      */
-    public static final int getBlock(int i, int j) {
+    public static int getBlock(int i, int j) {
         return (i / Config.SUDOKU_BLOCK_SIZE * Config.SUDOKU_BLOCK_SIZE + j / Config.SUDOKU_BLOCK_SIZE);
     }
 
@@ -77,34 +77,33 @@ public class PuzzleGeneratorTask extends AsyncTask<Level, Integer, ArrayList<int
      * @param j a column of board
      * @return The index of board
      */
-    public static final int getIndex(int i, int j) {
+    static int getIndex(int i, int j) {
         return i * Config.SUDOKU_SIZE + j;
     }
 
-    public int[][] buildUniqueSolutionPuzzle(Level level) {
-        String raw = Dlx.generatePuzzle(Config.SUDOKU_BLOCK_SIZE, level.randomMinSubGivens(), level.randomMinTotalGivens());
+    private int[][] buildUniqueSolutionPuzzle(Level level) {
+        String raw = Sudoku.generatePuzzle(Config.SUDOKU_BLOCK_SIZE, level.randomMinSubGivens(), level.randomMinTotalGivens());
         return puzzleBytes2Array(raw.getBytes());
     }
 
-    public int[][] solveUniqueSolutionPuzzle(int[][] puzzle) {
+    private int[][] solveUniqueSolutionPuzzle(int[][] puzzle) {
         StringBuilder raw = new StringBuilder();
         for (int r = 0, i = 0; r < Config.SUDOKU_SIZE; r++) {
             for (int c = 0; c < Config.SUDOKU_SIZE; c++, i++) {
                 raw.append(String.valueOf(puzzle[r][c]));
             }
         }
-        String out = Dlx.solvePuzzleByRaw(Config.SUDOKU_BLOCK_SIZE, raw.toString(), 1);
-        String[] data = out.split(new String(new byte[]{Dlx.SOLUTION_PREFIX}));
-        String msg = data[0];
+
+        String out = Sudoku.solveRaw(Config.SUDOKU_BLOCK_SIZE, raw.toString(), 1);
+        String[] data = out.split(new String(new byte[]{Sudoku.SOLUTION_PREFIX}));
         return puzzleBytes2Array(data[1].getBytes());
     }
 
-    public int[][] puzzleBytes2Array(byte[] bs) {
+    private int[][] puzzleBytes2Array(byte[] bs) {
         int[][] ret = new int[Config.SUDOKU_SIZE][Config.SUDOKU_SIZE];
-        int ZERO_BYTE = '0';
         for (int r = 0, i = 0; r < Config.SUDOKU_SIZE; r++) {
             for (int c = 0; c < Config.SUDOKU_SIZE; c++, i++) {
-                ret[r][c] = bs[i] - ZERO_BYTE;
+                ret[r][c] = bs[i] - '0';
             }
         }
         return ret;

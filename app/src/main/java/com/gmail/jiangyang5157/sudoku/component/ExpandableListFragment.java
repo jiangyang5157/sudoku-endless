@@ -31,11 +31,7 @@ public class ExpandableListFragment extends Fragment
     };
 
     final private AdapterView.OnItemClickListener mOnClickListener
-            = new AdapterView.OnItemClickListener() {
-        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-            onListItemClick((ExpandableListView) parent, v, position, id);
-        }
-    };
+            = (parent, v, position, id) -> onListItemClick((ExpandableListView) parent, v, position, id);
 
     ExpandableListAdapter mAdapter;
     ExpandableListView mExpandableList;

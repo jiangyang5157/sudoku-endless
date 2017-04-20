@@ -2,8 +2,9 @@ package com.gmail.jiangyang5157.sudoku.ui.puzzle;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.util.Log;
-import android.view.*;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.gmail.jiangyang5157.sudoku.component.BaseActivity;
 import com.gmail.jiangyang5157.sudoku.component.BaseFragment;
@@ -16,7 +17,6 @@ import com.gmail.jiangyang5157.sudoku.R;
  * Time: 11:44
  */
 public class SudokuActivity extends BaseActivity implements KeypadFragment.Listener {
-    private final static String TAG = "[SudokuActivity]";
 
     public static final int ACTIVITY_REQUESTCODE = 100;
 

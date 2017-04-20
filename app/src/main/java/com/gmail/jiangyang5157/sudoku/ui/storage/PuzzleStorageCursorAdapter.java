@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class PuzzleStorageCursorAdapter extends CursorAdapter implements PuzzleStorageListItemView.Listener {
+class PuzzleStorageCursorAdapter extends CursorAdapter implements PuzzleStorageListItemView.Listener {
     private Context mContext = null;
     private Listener mListener = null;
 
@@ -29,7 +29,7 @@ public class PuzzleStorageCursorAdapter extends CursorAdapter implements PuzzleS
 
     private HashSet<Long> selectedRowIDs = null;
 
-    public PuzzleStorageCursorAdapter(Context context, Cursor c, Listener listener) {
+    PuzzleStorageCursorAdapter(Context context, Cursor c, Listener listener) {
         // I don't want to pass it FLAG_REGISTER_CONTENT_OBSERVER, since I'm using a CursorLoader with my CursorAdapter.
         // I definitely don't want to pass it FLAG_AUTO_REQUERY, since that flag is deprecated. So I pass 0 flag
         super(context, c, 0);
@@ -38,7 +38,7 @@ public class PuzzleStorageCursorAdapter extends CursorAdapter implements PuzzleS
         selectedRowIDs = new HashSet<>();
     }
 
-    public HashSet<Long> getSelectedRowIDs() {
+    HashSet<Long> getSelectedRowIDs() {
         return selectedRowIDs;
     }
 
@@ -56,7 +56,7 @@ public class PuzzleStorageCursorAdapter extends CursorAdapter implements PuzzleS
         }
     }
 
-    public void selectedAllRowIds() {
+    void selectedAllRowIds() {
         Cursor c = getCursor();
         for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
             long rowId = Long.parseLong(c.getString(c.getColumnIndexOrThrow(PuzzleTable.KEY_ROWID)));
@@ -68,7 +68,7 @@ public class PuzzleStorageCursorAdapter extends CursorAdapter implements PuzzleS
         }
     }
 
-    public void unSelectedAllRowIds() {
+    void unSelectedAllRowIds() {
         selectedRowIDs.clear();
 
         if (mListener != null) {
@@ -76,11 +76,11 @@ public class PuzzleStorageCursorAdapter extends CursorAdapter implements PuzzleS
         }
     }
 
-    public int getSelectedRowIdCount() {
+    int getSelectedRowIdCount() {
         return selectedRowIDs.size();
     }
 
-    public void deleteClickedRowIDs() {
+    void deleteClickedRowIDs() {
         Iterator<Long> it = selectedRowIDs.iterator();
         while (it.hasNext()) {
             long rowId = it.next();

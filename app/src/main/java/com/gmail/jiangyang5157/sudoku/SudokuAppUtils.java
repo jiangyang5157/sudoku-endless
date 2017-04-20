@@ -19,7 +19,7 @@ public class SudokuAppUtils extends AppUtils {
 
     static {
         Author author = new Author("Yang", "Jiang");
-        author.putEmailAddress(Type.HOME, new EmailAddress("jiangyang5157", "hotmail.com"));
+        author.putEmailAddress(Type.HOME, new EmailAddress("jiangyang5157", "gmail.com"));
         authors.add(author);
     }
 

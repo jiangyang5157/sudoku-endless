@@ -1,2 +1,2 @@
 configurations.maybeCreate("default")
-artifacts.add("default", file('android-base-debug.aar'))
+artifacts.add("default", file('android-base-release.aar'))

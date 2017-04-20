@@ -11,12 +11,10 @@ public class AppDatabaseApi extends BaseAppDatabaseApi {
 
     private volatile static AppDatabaseApi uniqueAppDatabaseApi = null;
 
-    public static AppDatabaseApi getInstance(Context context) {
+    public static synchronized AppDatabaseApi getInstance(Context context) {
         if (uniqueAppDatabaseApi == null) {
-            synchronized (AppDatabaseApi.class) {
-                if (uniqueAppDatabaseApi == null) {
-                    uniqueAppDatabaseApi = new AppDatabaseApi(context);
-                }
+            if (uniqueAppDatabaseApi == null) {
+                uniqueAppDatabaseApi = new AppDatabaseApi(context);
             }
         }
         return uniqueAppDatabaseApi;
@@ -32,8 +30,8 @@ public class AppDatabaseApi extends BaseAppDatabaseApi {
     }
 
     public long insertPuzzle(String cache, String drawable, String date, String timer, String best_time) {
-//        open();
-//        try {
+        open();
+        try {
             ContentValues cv = new ContentValues();
             cv.put(PuzzleTable.KEY_CACHE, cache);
             cv.put(PuzzleTable.KEY_DRAWABLE, drawable);
@@ -41,16 +39,15 @@ public class AppDatabaseApi extends BaseAppDatabaseApi {
             cv.put(PuzzleTable.KEY_TIMER, timer);
             cv.put(PuzzleTable.KEY_BEST_TIME, best_time);
 
-            long ret = insert(PuzzleTable.TABLE_NAME, cv);
-            return ret;
-//        } finally {
-//            close();
-//        }
+            return insert(PuzzleTable.TABLE_NAME, cv);
+        } finally {
+            close();
+        }
     }
 
     public int updatePuzzle(String rowId, String cache, String drawable, String date, String timer, String best_time) {
-//        open();
-//        try {
+        open();
+        try {
             ContentValues cv = new ContentValues();
             cv.put(PuzzleTable.KEY_CACHE, cache);
             cv.put(PuzzleTable.KEY_DRAWABLE, drawable);
@@ -58,16 +55,15 @@ public class AppDatabaseApi extends BaseAppDatabaseApi {
             cv.put(PuzzleTable.KEY_TIMER, timer);
             cv.put(PuzzleTable.KEY_BEST_TIME, best_time);
 
-            int ret = update(PuzzleTable.TABLE_NAME, rowId, cv);
-            return ret;
-//        } finally {
-//            close();
-//        }
+            return update(PuzzleTable.TABLE_NAME, rowId, cv);
+        } finally {
+            close();
+        }
     }
 
     public Cursor queryPuzzles(String orderBy) {
-//        open();
-//        try {
+        open();
+        try {
             String col[] = {PuzzleTable.KEY_ROWID,
                     PuzzleTable.KEY_CACHE,
                     PuzzleTable.KEY_DRAWABLE,
@@ -75,16 +71,15 @@ public class AppDatabaseApi extends BaseAppDatabaseApi {
                     PuzzleTable.KEY_TIMER,
                     PuzzleTable.KEY_BEST_TIME};
 
-            Cursor ret = query(PuzzleTable.TABLE_NAME, col, orderBy);
-            return ret;
-//        } finally {
-//            close();
-//        }
+            return query(PuzzleTable.TABLE_NAME, col, orderBy);
+        } finally {
+            close();
+        }
     }
 
     public Cursor queryPuzzle(String key, String value, String orderBy) {
-//        open();
-//        try {
+        open();
+        try {
             String col[] = {PuzzleTable.KEY_ROWID,
                     PuzzleTable.KEY_CACHE,
                     PuzzleTable.KEY_DRAWABLE,
@@ -92,16 +87,15 @@ public class AppDatabaseApi extends BaseAppDatabaseApi {
                     PuzzleTable.KEY_TIMER,
                     PuzzleTable.KEY_BEST_TIME};
 
-            Cursor ret = queryValue(PuzzleTable.TABLE_NAME, col, key, value, orderBy);
-            return ret;
-//        } finally {
-//            close();
-//        }
+            return queryValue(PuzzleTable.TABLE_NAME, col, key, value, orderBy);
+        } finally {
+            close();
+        }
     }
 
     public Cursor queryPuzzles(String key, String like, String orderBy) {
-//        open();
-//        try {
+        open();
+        try {
             String col[] = {PuzzleTable.KEY_ROWID,
                     PuzzleTable.KEY_CACHE,
                     PuzzleTable.KEY_DRAWABLE,
@@ -109,20 +103,18 @@ public class AppDatabaseApi extends BaseAppDatabaseApi {
                     PuzzleTable.KEY_TIMER,
                     PuzzleTable.KEY_BEST_TIME};
 
-            Cursor ret = queryLike(PuzzleTable.TABLE_NAME, col, key, like, orderBy);
-            return ret;
-//        } finally {
-//            close();
-//        }
+            return queryLike(PuzzleTable.TABLE_NAME, col, key, like, orderBy);
+        } finally {
+            close();
+        }
     }
 
     public int deletePuzzle(String key, String value) {
-//        open();
-//        try {
-            int ret = delete(PuzzleTable.TABLE_NAME, key, value);
-            return ret;
-//        } finally {
-//            close();
-//        }
+        open();
+        try {
+            return delete(PuzzleTable.TABLE_NAME, key, value);
+        } finally {
+            close();
+        }
     }
 }

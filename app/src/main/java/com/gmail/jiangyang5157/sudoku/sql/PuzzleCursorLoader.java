@@ -11,6 +11,10 @@ public class PuzzleCursorLoader extends CursorLoader {
     private Context context = null;
     private String orderBy = null;
 
+    public PuzzleCursorLoader(Context context) {
+        this(context, null);
+    }
+
     /**
      * @param context
      * @param orderBy Passing null will use the default sort order, which may be unordered.
@@ -23,13 +27,14 @@ public class PuzzleCursorLoader extends CursorLoader {
 
     @Override
     protected Cursor onLoadInBackground() {
-        Cursor ret = null;
+        Cursor ret;
         switch (getId()) {
             case QUERY_PUZZLES:
                 ret = AppDatabaseApi.getInstance(context).queryPuzzles(orderBy);
                 break;
             default:
                 ret = super.onLoadInBackground();
+                break;
         }
         return ret;
     }

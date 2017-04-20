@@ -4,16 +4,16 @@ import android.content.Context;
 
 import com.gmail.jiangyang5157.tookit.android.sql.BaseAppDatabaseOpenHelper;
 
-public class AppDatabaseOpenHelper extends BaseAppDatabaseOpenHelper {
+class AppDatabaseOpenHelper extends BaseAppDatabaseOpenHelper {
 
     /**
      * File will locate in "/data/data/PACKAGE_PATH/DATABASE_NAME" as default
      */
-    public static final String DATABASE_NAME = "sudoku_endless.db";
+    private static final String DATABASE_NAME = "sudoku_endless.db";
 
-    public static final int DATABASE_VERSION = 10;
+    private static final int DATABASE_VERSION = 10;
 
-    protected AppDatabaseOpenHelper(Context context) {
+    AppDatabaseOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

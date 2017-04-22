@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/space"
-                card_view:cardElevation="@dimen/card_view_elevation"></android.support.v7.widget.CardView>
+                card_view:cardElevation="@dimen/card_view_elevation" />
         </com.gmail.jiangyang5157.sudoku.component.view.BaseFrameLayout>
 
         <RelativeLayout

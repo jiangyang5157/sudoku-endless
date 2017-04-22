@@ -1,7 +1,6 @@
 package com.gmail.jiangyang5157.sudoku.ui.settings;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -195,12 +194,10 @@ public class ColorPaletteActivity extends BaseActivity implements ColorPaletteEx
                         .setCancelable(true)
                         .setMessage(R.string.msg_reset)
                         .setPositiveButton(R.string.ok,
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int whichButton) {
-                                        SudokuAppUtils.resetColors(ColorPaletteActivity.this);
-                                        mColorPaletteFragment.reset();
-                                        mColorPalettePuzzleFragment.refreshPuzzleView();
-                                    }
+                                (dialog, whichButton) -> {
+                                    SudokuAppUtils.resetColors(ColorPaletteActivity.this);
+                                    mColorPaletteFragment.reset();
+                                    mColorPalettePuzzleFragment.refreshPuzzleView();
                                 })
                         .setNegativeButton(R.string.cancel, null).create().show();
                 return true;

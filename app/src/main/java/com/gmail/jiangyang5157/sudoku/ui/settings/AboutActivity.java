@@ -1,8 +1,5 @@
 package com.gmail.jiangyang5157.sudoku.ui.settings;
 
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,7 +7,6 @@ import android.view.MenuItem;
 import com.gmail.jiangyang5157.sudoku.component.BaseActivity;
 import com.gmail.jiangyang5157.sudoku.component.BaseFragment;
 import com.gmail.jiangyang5157.sudoku.R;
-import com.gmail.jiangyang5157.tookit.android.base.AppUtils;
 
 /**
  * User: Yang

@@ -12,10 +12,12 @@ android {
         versionName "2.1.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        jackOptions {
-            // From "javac (.java --> .class) --> dx (.class --> .dex)" to "Jack (.java --> .jack --> .dex)"
-            enabled true
-        }
+//        jackOptions {
+//            // From "javac (.java --> .class) --> dx (.class --> .dex)" to "Jack (.java --> .jack --> .dex)"
+//            enabled true
+//        }
+        android.compileOptions.sourceCompatibility 1.8
+        android.compileOptions.targetCompatibility 1.8
     }
 
     compileOptions {

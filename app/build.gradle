@@ -54,7 +54,7 @@ dependencies {
     
     compile 'com.google.code.gson:gson:2.8.0'
 
-    compile project(':base')
+    compile project(':kotlin-core')
     compile project(':android-base')
     compile project(':android-sql')
     compile project(':sudoku')

@@ -17,6 +17,8 @@ import android.util.Log;
 import android.view.*;
 import android.widget.ListView;
 
+import com.gmail.jiangyang5157.kotlin_core.utils.IoUtils;
+import com.gmail.jiangyang5157.kotlin_core.utils.RegexUtils;
 import com.gmail.jiangyang5157.sudoku.component.BaseActivity;
 import com.gmail.jiangyang5157.sudoku.component.BaseListFragment;
 import com.gmail.jiangyang5157.sudoku.component.SpecialKeyListener;
@@ -29,8 +31,6 @@ import com.gmail.jiangyang5157.sudoku.ui.puzzle.BasePuzzleFragment;
 import com.gmail.jiangyang5157.sudoku.ui.puzzle.SudokuActivity;
 import com.gmail.jiangyang5157.tookit.android.base.AppUtils;
 import com.gmail.jiangyang5157.tookit.android.base.DeviceUtils;
-import com.gmail.jiangyang5157.tookit.base.data.IoUtils;
-import com.gmail.jiangyang5157.tookit.base.data.RegularExpressionUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -151,7 +151,7 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
             if (!directory.exists() || !directory.isDirectory()) {
                 boolean mkdirs = directory.mkdirs();
             }
-            String name = new SimpleDateFormat(RegularExpressionUtils.DATE_REGEX_FILE_NAME, Locale.getDefault()).format(new Date()) + "." + Config.PUZZLE_FILE_END;
+            String name = new SimpleDateFormat(RegexUtils.INSTANCE.getDATE_FILE_NAME(), Locale.getDefault()).format(new Date()) + "." + Config.PUZZLE_FILE_END;
             String path = dirPath + File.separator + name;
 
             if (mExportPuzzle == null || mExportPuzzle.getStatus() == AsyncTask.Status.FINISHED) {
@@ -318,7 +318,7 @@ public class PuzzleStorageFragment extends BaseListFragment implements LoaderMan
         InputStream in = null;
         try {
             in = new FileInputStream(new File(filePath));
-            IoUtils.read(in, line -> {
+            IoUtils.INSTANCE.read(in, line -> {
                 if (line == null) {
                     return false;
                 } else {

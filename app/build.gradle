@@ -16,17 +16,12 @@ android {
             // From "javac (.java --> .class) --> dx (.class --> .dex)" to "Jack (.java --> .jack --> .dex)"
             enabled true
         }
-
-//        ndk {
-//        // it should not generate any folder and use existing native library resources
-//            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
-//        }
     }
 
     compileOptions {
         /*
         JavaVersion.VERSION_1_8
-        dependencies: jackOptions
+        dependencies: jackOptions is required
         support: lambda
          */
         sourceCompatibility JavaVersion.VERSION_1_8

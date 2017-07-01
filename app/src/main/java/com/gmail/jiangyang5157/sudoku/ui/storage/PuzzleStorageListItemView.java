@@ -10,11 +10,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.*;
 
-import com.gmail.jiangyang5157.kotlin_core.utils.RegexUtils;
 import com.gmail.jiangyang5157.sudoku.R;
 import com.gmail.jiangyang5157.sudoku.puzzle.Difficulty;
 import com.gmail.jiangyang5157.sudoku.sql.PuzzleTable;
 import com.gmail.jiangyang5157.tookit.android.base.AppUtils;
+import com.gmail.jiangyang5157.tookit.base.data.RegularExpressionUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -125,7 +125,7 @@ public class PuzzleStorageListItemView extends FrameLayout {
     }
 
     public void setDate(long date) {
-        tvDate.setText(new SimpleDateFormat(RegexUtils.INSTANCE.getDATE_LABEL(), Locale.getDefault()).format(new Date(date)));
+        tvDate.setText(new SimpleDateFormat(RegularExpressionUtils.DATE_REGEX_LABEL, Locale.getDefault()).format(new Date(date)));
     }
 
     public void setTimer(int timer) {

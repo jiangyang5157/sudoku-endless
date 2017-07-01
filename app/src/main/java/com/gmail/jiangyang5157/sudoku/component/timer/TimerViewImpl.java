@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.gmail.jiangyang5157.kotlin_core.utils.TimeUtils;
 import com.gmail.jiangyang5157.sudoku.R;
+import com.gmail.jiangyang5157.tookit.base.time.TimeUtils;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -83,7 +83,7 @@ public class TimerViewImpl extends FrameLayout implements TimerView {
     public void start() {
         if (!mStarted) {
             mTimer = new Timer();
-            mTimer.scheduleAtFixedRate(new UpdateTask(), 0, TimeUtils.INSTANCE.getMILLI_IN_SECOND());
+            mTimer.scheduleAtFixedRate(new UpdateTask(), 0, TimeUtils.MILLI_IN_SECOND);
         }
         mStarted = true;
     }

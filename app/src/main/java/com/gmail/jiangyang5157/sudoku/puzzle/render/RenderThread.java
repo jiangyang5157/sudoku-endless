@@ -6,7 +6,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.view.SurfaceHolder;
 
-import com.gmail.jiangyang5157.kotlin_core.utils.TimeUtils;
+import com.gmail.jiangyang5157.tookit.base.time.TimeUtils;
 
 public class RenderThread extends Thread {
 
@@ -135,7 +135,7 @@ public class RenderThread extends Thread {
                 }
 
                 long elapsed = now - prevFrame;
-                if (elapsed > TimeUtils.INSTANCE.getMILLI_IN_SECOND()) {
+                if (elapsed > TimeUtils.MILLI_IN_SECOND) {
 //                    Log.d(TAG, "FPS - " + (frames * 1000) / elapsed);
                     prevFrame = System.currentTimeMillis();
                     frames = 0;
@@ -186,7 +186,7 @@ public class RenderThread extends Thread {
 
     public void setFps(int fps) {
         this.fps = fps;
-        framePeriod = (int) (TimeUtils.INSTANCE.getMILLI_IN_SECOND() / fps);
+        framePeriod = (int) (TimeUtils.MILLI_IN_SECOND / fps);
     }
 
     public boolean isRunning() {

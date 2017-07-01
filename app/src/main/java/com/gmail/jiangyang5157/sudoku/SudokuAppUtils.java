@@ -3,10 +3,10 @@ package com.gmail.jiangyang5157.sudoku;
 import android.content.Context;
 import android.preference.PreferenceManager;
 
-import com.gmail.jiangyang5157.sudoku.component.data_structure.contact.EmailAddress;
-import com.gmail.jiangyang5157.sudoku.component.data_structure.contact.Type;
-import com.gmail.jiangyang5157.sudoku.component.data_structure.contact.person.Author;
 import com.gmail.jiangyang5157.tookit.android.base.AppUtils;
+import com.gmail.jiangyang5157.tookit.base.data.structure.contact.EmailAddress;
+import com.gmail.jiangyang5157.tookit.base.data.structure.contact.Type;
+import com.gmail.jiangyang5157.tookit.base.data.structure.contact.person.Author;
 
 import java.util.ArrayList;
 

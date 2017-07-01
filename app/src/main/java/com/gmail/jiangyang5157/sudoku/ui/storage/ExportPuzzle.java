@@ -4,9 +4,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.os.AsyncTask;
 
-import com.gmail.jiangyang5157.kotlin_core.utils.IoUtils;
 import com.gmail.jiangyang5157.sudoku.sql.AppDatabaseApi;
 import com.gmail.jiangyang5157.sudoku.sql.PuzzleTable;
+import com.gmail.jiangyang5157.tookit.base.data.IoUtils;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -59,7 +59,7 @@ class ExportPuzzle extends AsyncTask<HashSet<Long>, Void, File> {
         InputStream in = null;
         try {
             in = new ByteArrayInputStream(content.toString().getBytes(StandardCharsets.UTF_8));
-            IoUtils.INSTANCE.write(in, file);
+            IoUtils.write(in, file);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

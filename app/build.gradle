@@ -16,6 +16,8 @@ android {
 //            // From "javac (.java --> .class) --> dx (.class --> .dex)" to "Jack (.java --> .jack --> .dex)"
 //            enabled true
 //        }
+        android.compileOptions.sourceCompatibility 1.8
+        android.compileOptions.targetCompatibility 1.8
     }
 
     compileOptions {

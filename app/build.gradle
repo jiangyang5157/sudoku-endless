@@ -57,5 +57,5 @@ dependencies {
     compile project(':kotlin-core')
     compile project(':android-base')
     compile project(':android-sql')
-    compile project(':sudoku')
+    compile project(':go-sudoku')
 }

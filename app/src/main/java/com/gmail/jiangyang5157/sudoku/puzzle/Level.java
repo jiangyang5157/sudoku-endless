@@ -2,9 +2,8 @@ package com.gmail.jiangyang5157.sudoku.puzzle;
 
 import android.support.annotation.NonNull;
 
-import com.gmail.jiangyang5157.tookit.math.Mersenne;
-
 import java.io.Serializable;
+import java.util.Random;
 
 public class Level implements Serializable {
 
@@ -25,7 +24,7 @@ public class Level implements Serializable {
     }
 
     private static int randomPick(@NonNull final int[] range) throws IllegalArgumentException {
-        return new Mersenne().nextInt(range[1] - range[0] + 1) + range[0];
+        return new Random().nextInt(range[1] - range[0] + 1) + range[0];
     }
 
     public Difficulty getDifficulty() {

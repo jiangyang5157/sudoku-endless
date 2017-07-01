@@ -17,9 +17,10 @@ android {
             enabled true
         }
 
-        ndk {
-            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
-        }
+//        ndk {
+//        // it should not generate any folder and use existing native library resources
+//            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+//        }
     }
 
     compileOptions {
@@ -59,7 +60,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.0'
 
     compile project(':base')
-    compile project(':math')
     compile project(':android-base')
     compile project(':android-sql')
     compile project(':sudoku')
